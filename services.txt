@@ -1,0 +1,172 @@
+import React from "react";
+import certificate from "../images/education.JPG";
+import EcoLVedio from "../images/Ecol.mp4";
+import "./services.css";
+
+const Services = () => {
+  return (
+    <>
+      <section
+        className="services-hero"
+        data-aos="fade-right"
+        data-aos-offset="300"
+        data-aos-easing="ease-in-sine"
+      >
+        <div className="container">
+          <div className="row">
+            <div className="col-md-6">
+              <div className="service-hero_left">
+                <h2>
+                  Conducting school-level assessments on behalf of the Ministry
+                  of Education and Training (MoET).
+                </h2>
+
+                <p className="service-hero_paragraph text-justify">
+                  The Examinations Council of Lesotho (ECoL) is a non-profit
+                  organization which is responsible for conducting school-level
+                  assessments on behalf of the Ministry of Education and
+                  Training (MoET). conducts End-of-Level Assessments at
+                  specified points in the education system, for example, Grade4
+                  and Grade7. ECoL further carries out public examinations at
+                  the end of Junior Secondary, Form C (Junior Certificate
+                  Examination) and at the end of Senior Secondary, Form E (O’
+                  Level/LGCSE). The O’ Level curriculum and examinations are
+                  accredited by Cambridge International Assessment.
+                </p>
+              </div>
+            </div>
+            <div className="col-md-6">
+              <div className="service-hero_right">
+                <video width="500" loop="true" autoplay="autoplay"  muted height="270" controls>
+                  <source src={EcoLVedio} type="video/mp4" />
+                </video>
+                {/* <img
+                  src={certificate}
+                  className="service-image img-fluid"
+                  alt="Services"
+                /> */}
+              </div>
+            </div>
+          </div>
+        </div>
+      </section>
+      <section className="services">
+        <h2>Services</h2>
+        <div className="custom-separator mx-auto "></div>
+        <div className="container mt-4 mb-4 ">
+          <div className="row ">
+            <div className="col-md-6 col-lg-4 mb-3">
+              <div
+                className="box p-4 "
+                data-aos="fade-up"
+                data-aos-anchor-placement="center-bottom"
+              >
+                <i className="fa fa-compress fa-3x mb-4 icon-green"></i>
+                <h4>EVALUATION OF FOREIGN RESULTS</h4>
+                <ul>
+                  <li>Payment method : M-PESA or EFT</li>
+                  <li>Fee : M525.00</li>
+                  
+                  <li>
+                    Required : Copy of Statement of Results Or Certificate
+                  </li>
+                  <a class="btn btn-primary" target="_blank" rel="noreferrer" href="https://ecol.org.ls/services">Apply Now</a>
+                </ul>
+                <a className="readmore" href="#">
+                  <span>Results will be available within 5 Working days</span>
+                </a>
+              </div>
+            </div>
+            <div className="col-md-6 col-lg-4 mb-3">
+              <div className="box p-4" data-aos="zoom-in-up">
+                <i className="fa fa-print  fa-3x mb-4 icon-blue"></i>
+                <h4>PSLE/LGCSE Results Printing</h4>
+                <ul>
+                  <li>Payment method : M-PESA or EFT</li>
+                  <li>LGCSE fee : M165.00</li>
+                  <li>PSLE fee : M165.00</li>
+                  <li>Requirements : Letter From School</li>
+                  <a class="btn btn-primary" target="_blank" rel="noreferrer" href="https://ecol.org.ls/services">Apply Now</a>
+                </ul>
+                <a className="readmore" href="#">
+                  <span>Results are issued within a day</span>
+                </a>
+              </div>
+            </div>
+            <div className="col-md-6 col-lg-4 mb-3">
+              <div className="box p-4" data-aos="zoom-in-up">
+                <i className="fa fa-check-square-o fa-3x mb-4 icon-yellow"></i>
+                <h4>RESULTS OR CERTIFICATION VERIFICATION </h4>
+                <ul>
+                  <li>Payment method : M-PESA or EFT </li>
+                  <li>Local Verification(Employers / Companies) : M200.00 </li>
+                  <li>Foreign Verification : M405.00</li>
+                  <li>Education Institutions Verification : M105.00</li>
+                  <a class="btn btn-primary" target="_blank" rel="noreferrer" href="https://ecol.org.ls/services">Apply Now</a>
+                </ul>
+
+                <a className="readmore" href="#">
+                  <span>Results will be available withing 5 working days</span>
+                </a>
+              </div>
+            </div>
+            <div className="col-md-6 col-lg-4 mb-3">
+              <div className="box p-4 popular" data-aos="zoom-in-up">
+                <span className="badge-popular">Most Popular</span>
+                <i className="fa fa-certificate fa-3x mb-4 icon-purple"></i>
+                <h4>CERTIFICATE REPLACEMENT</h4>
+                <ul>
+                  <li>Payment method : M-PESA or EFT</li>
+                  <li>PSLE fee : M345.00 </li>
+                  <li>JC fee : M645.00 </li>
+                  <li>LGCSE fee : M1245.00</li>
+                  <a class="btn btn-primary" target="_blank" rel="noreferrer" href="https://ecol.org.ls/services">Apply Now</a>
+                </ul>
+                <a className="readmore" href="#">
+                  <span>
+                    <h4>REQUIREMENTS</h4>
+                    <ul>
+                      <li>A Letter from school</li>
+                      <li>Affidavit from police station</li>
+                      <li>Receipts from the bank</li>
+                      <li>Passport size photo(coloured)</li>
+                    </ul>
+                  </span>
+                </a>
+              </div>
+            </div>
+            <div className="col-md-6 col-lg-4 mb-3">
+              <div className="box p-4" data-aos="zoom-in-up">
+                <i className="fa fa-newspaper-o fa-3x mb-4 icon-teal"></i>
+                <h4>MIGRATION CERTIFICATE </h4>
+                <ul>
+                  <li>Payment method : M-PESA or EFT </li>
+                  <li>Migration certificate fee : M1245.00</li>
+                  <li>English Proficiency fee : M105.00</li>
+                  <li>Requirements : Original LGSCE/COSC Certificate</li>
+                  <a class="btn btn-primary" target="_blank" rel="noreferrer" href="https://ecol.org.ls/services">Apply Now</a>
+                </ul>
+                <a className="readmore" href="#">
+                  <span>
+                    <ul>
+                      <li>
+                        Migration certificate will be available within 2 working
+                        days
+                      </li>
+                      <li>
+                        English proficiency results will be available within a
+                        day
+                      </li>
+                    </ul>
+                  </span>
+                </a>
+              </div>
+            </div>
+          </div>
+        </div>
+      </section>
+    </>
+  );
+};
+
+export default Services;
