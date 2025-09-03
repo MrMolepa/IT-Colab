@@ -1,0 +1,198 @@
+import * as React from "react";
+import ECoLHQ from "../../images/ecol/ECoL_HQ.jpg";
+import ReadMoreReadLess from "./../../componets/ReadMoreReadLess";
+import { FaEye, FaBullseye, FaHandshake } from "react-icons/fa";
+import "./aboutus.css";
+
+const AboutUs = () => {
+  return (
+    <>
+      <div className="hero-aboutus">
+        <h1>About Us</h1>
+        <p className="subtitle">
+          Our mandate is to develop, regulate and maintain an effective
+          assessment system for basic education that responds to the educational
+          needs of learners in Lesotho.
+        </p>
+      </div>
+      <div className="aboutus-container">
+        <div className="container">
+          <div className="row">
+            <div className="col-md-6 col-lg-6">
+              <div className="home-about">
+                <h2>Who is ECoL</h2>
+                <div className="custom-separator mx-auto"></div>
+                <br />
+                <ReadMoreReadLess>
+                  <p className="text-justify">
+                    The Examinations Council of Lesotho (ECoL) serves as the
+                    authority responsible for developing, overseeing, and
+                    maintaining a robust assessment system for Basic Education
+                    that addresses Lesotho's educational requirements. ECoL
+                    administers the Grade 7 End-of-Level Assessment, which gauges
+                    learners' attainment of learning goals as they transition to
+                    the Secondary Phase. Additionally, ECoL manages Grade 11
+                    public examinations for the Lesotho General Certificate of
+                    Secondary Education (LGCSE), a qualification endorsed by the
+                    National University of Lesotho (NUL) for quality assurance.
+                  </p>
+                  <p className="text-justify">
+                    ECoL is also entrusted with conducting the biennial Lesotho
+                    National Assessment of Educational Progress (LNAEP) Survey in
+                    Grades 4 and 6. This survey, conducted on behalf of the
+                    Ministry of Education and Training (MoET), monitors the
+                    progress of the country's education system.
+                  </p>
+                  <p className="text-justify">
+                    Furthermore, ECoL offers services including evaluating foreign
+                    results, printing replacement certificates, issuing migration
+                    certificates, verifying foreign results and certificates, as
+                    well as administering English proficiency tests. These
+                    services are accessible online for enhanced efficiency,
+                    effectiveness, and client convenience.
+                  </p>
+                </ReadMoreReadLess>
+              </div>
+            </div>
+            <div className="col-md-6 col-lg-6">
+              <img src={ECoLHQ} alt="ECoL HQ" className="img-fluid" />
+            </div>
+          </div>
+        </div>
+        <div className="function-goals">
+          <div className="container">
+            <div className="row">
+              <div className="col-sm-12  col-md-6">
+                <h2>Goals</h2>
+                <div className="custom-separator  bg-primary"></div>
+                <div className="about-goals">
+                  <ul>
+                    <li>
+                      Establishment of an efficient and effective assessment
+                      system that drives developments in the country’s basic
+                      education system.
+                    </li>
+                    <li>
+                      Enhanced basic education outcomes attained through
+                      awarding qualifications that meet international standards.
+                    </li>
+                    <li>
+                      Re-invigorated assessment services and products informed
+                      by school-based assessment research.
+                    </li>
+                    <li>
+                      Enhanced credibility of assessment processes and products
+                      through benchmarking them with, and soliciting their
+                      accreditation from international and sub-regional
+                      professional assessment institutions.
+                    </li>
+                    <li>
+                      Automated business processes for improving ECOL’s
+                      institutional efficiency and organizational effectiveness.{" "}
+                    </li>
+                    <li>
+                      Enhanced security of assessment processes and products
+                      through up-to-date technologies.
+                    </li>
+                  </ul>
+                </div>
+              </div>
+              <div className="col-sm-12  col-md-6">
+                <h2>Function</h2>
+                <div className="custom-separator  bg-primary"></div>
+                <div className="about-goals">
+                  <ul>
+                    <li>
+                      Develop Lesotho Advanced Secondary Qualification (LASQ)
+                    </li>
+                    <li>
+                      {" "}
+                      Develop and administer all assessment materials at basic
+                      education level, including:
+                      <ul>
+                        <li>Examination papers</li>
+                        <li>Continuous assessment packages</li>
+                        <li>National assessment surveys</li>
+                        <li>End-of-level achievement assessments</li>
+                      </ul>
+                    </li>
+                    <li>Quality-assure all internal assessment processes</li>
+                    <li>Conduct training of service providers. </li>
+                    <li>
+                      Manage assessments within the basic education school
+                      curriculumConduct training of service providers.
+                    </li>
+                    <li>
+                      Award certificates of attainment in basic education.
+                    </li>
+                    <li>
+                      Conduct educational research (Learners performance,
+                      NAEP)Award certificates of attainment in basic education.
+                    </li>
+                    <li>Evaluate/ verify foreign certificates</li>
+                  </ul>
+                </div>
+              </div>
+            </div>
+          </div>
+        </div>
+        <div className="mission-vision">
+          <div className="container">
+            <h2 className="text-center mb-5">Our Core Principles</h2>
+            <div className="row g-4">
+              <div className="col-md-4">
+                <div className="card h-100 border-0 shadow-sm hover-card">
+                  <div className="card-body p-4 text-center">
+                    <div className="icon-wrapper mb-3">
+                      <FaEye className="vision-icon" />
+                    </div>
+                    <h3 className="h4 mb-3">Vision</h3>
+                    <p className="mb-0">
+                      An advanced, progressive and credible school assessment system
+                      that provides qualifications of high quality in basic
+                      education that are recognized locally, regionally and
+                      internationally.
+                    </p>
+                  </div>
+                </div>
+              </div>
+              <div className="col-md-4">
+                <div className="card h-100 border-0 shadow-sm hover-card">
+                  <div className="card-body p-4 text-center">
+                    <div className="icon-wrapper mb-3">
+                      <FaBullseye className="mission-icon" />
+                    </div>
+                    <h3 className="h4 mb-3">Mission</h3>
+                    <p className="mb-0">
+                      To develop a system of assessment at the basic education level
+                      that provides qualifications that address diverse educational
+                      needs of learners in the country, the region, and beyond.
+                    </p>
+                  </div>
+                </div>
+              </div>
+              <div className="col-md-4">
+                <div className="card h-100 border-0 shadow-sm hover-card">
+                  <div className="card-body p-4 text-center">
+                    <div className="icon-wrapper mb-3">
+                      <FaHandshake className="values-icon" />
+                    </div>
+                    <h3 className="h4 mb-3">Values</h3>
+                    <p className="mb-0">
+                      To achieve the Vision and accomplish the Mission, we uphold
+                      integrity, excellence, and professionalism in all our dealings
+                      with clients and stakeholders.
+                    </p>
+                  </div>
+                </div>
+              </div>
+            </div>
+          </div>
+        </div>
+      </div>
+    </>
+  );
+};
+
+export default AboutUs;
+

@@ -1,0 +1,588 @@
+:root {
+  --primary: #598ABF; /* Main blue color */
+  --secondary: #d2b356; /* Gold accent color */
+  --accent: #2c5b96; /* Darker blue for accents */
+  --light: #f4f4f4; /* Light background */
+  --dark: #333333; /* Dark text color */
+  --white: #ffffff; /* White color */
+  --transition: all 0.3s ease;
+}
+
+.hero-aboutus {
+  margin: 0;
+  background: linear-gradient(135deg, rgba(44, 62, 80, 0.9), rgba(52, 152, 219, 0.8)), 
+              url('../../images/clock.jpg');
+  background-size: cover;
+  background-position: center;
+  background-attachment: fixed;
+  padding: 8em 1em;
+  text-align: center;
+  color: white;
+  min-height: 60vh;
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  position: relative;
+  overflow: hidden;
+}
+
+.hero-aboutus h1 {
+  font-size: 3.5em;
+  font-weight: 700;
+  margin-bottom: 0.5em;
+  text-shadow: 2px 2px 4px rgba(0, 0, 0, 0.3);
+  position: relative;
+  display: inline-block;
+  animation: fadeInUp 1s ease-out;
+}
+
+.hero-aboutus h1::after {
+  content: '';
+  position: absolute;
+  bottom: -10px;
+  left: 50%;
+  transform: translateX(-50%);
+  width: 80px;
+  height: 3px;
+  background: var(--accent);
+}
+
+.hero-aboutus .subtitle {
+  width: 70%;
+  margin: 1.5em auto;
+  font-size: 1.2em;
+  line-height: 1.6;
+  font-weight: 300;
+  max-width: 800px;
+  opacity: 0.95;
+  animation: fadeInUp 1s ease-out 0.2s both;
+}
+
+@keyframes fadeInUp {
+  from {
+    opacity: 0;
+    transform: translateY(20px);
+  }
+  to {
+    opacity: 1;
+    transform: translateY(0);
+  }
+}
+
+/* Main Content */
+.aboutus-container {
+  margin: 0;
+  padding: 5em 0;
+  background-color: #fff;
+}
+
+.aboutus-container .container {
+  max-width: 1200px;
+  margin: 0 auto;
+  padding: 0 2em;
+}
+
+.aboutus-container h2 {
+  color: var(--primary);
+  font-size: 2.2em;
+  font-weight: 600;
+  margin-bottom: 1.5rem;
+  position: relative;
+  padding-bottom: 0.8rem;
+}
+
+.aboutus-container h2::after {
+  content: '';
+  position: absolute;
+  bottom: 0;
+  left: 0;
+  width: 60px;
+  height: 3px;
+  background: var(--secondary);
+  transition: width 0.3s ease;
+}
+
+.aboutus-container h2:hover::after {
+  width: 100px;
+}
+
+.aboutus-container p {
+  color: #555;
+  line-height: 1.8;
+  margin-bottom: 1.5rem;
+  font-size: 1.1em;
+}
+
+.aboutus-container img {
+  border-radius: 10px;
+  box-shadow: 0 10px 30px rgba(0, 0, 0, 0.1);
+  transition: var(--transition);
+  max-width: 100%;
+  height: auto;
+}
+
+.aboutus-container img:hover {
+  transform: translateY(-5px);
+  box-shadow: 0 15px 40px rgba(0, 0, 0, 0.15);
+}
+
+
+/* Goals & Functions Section */
+.function-goals {
+  background: var(--light);
+  padding: 6em 0;
+  position: relative;
+  overflow: hidden;
+}
+
+.function-goals::before {
+  content: '';
+  position: absolute;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 10px;
+  background: linear-gradient(90deg, var(--secondary), var(--accent));
+}
+
+.about-goals {
+  background: white;
+  padding: 2.5em;
+  border-radius: 10px;
+  box-shadow: 0 5px 25px rgba(0, 0, 0, 0.05);
+  transition: var(--transition);
+  height: 100%;
+  margin-bottom: 2em;
+}
+
+.about-goals:hover {
+  transform: translateY(-5px);
+  box-shadow: 0 15px 35px rgba(0, 0, 0, 0.1);
+}
+
+.about-goals ul {
+  padding-left: 1.2em;
+  margin: 0;
+}
+
+.about-goals ul li {
+  list-style: none;
+  color: #555;
+  margin: 15px 0;
+  font-size: 1em;
+  line-height: 1.8;
+  position: relative;
+  padding-left: 1.8em;
+  transition: var(--transition);
+}
+
+.about-goals ul li::before {
+  content: '✓';
+  position: absolute;
+  left: 0;
+  color: var(--secondary);
+  font-weight: bold;
+  transition: var(--transition);
+}
+
+.about-goals ul li:hover {
+  color: var(--primary);
+  transform: translateX(5px);
+}
+
+.about-goals ul li:hover::before {
+  color: var(--accent);
+}
+
+.about-goals ul ul {
+  margin-top: 10px;
+  padding-left: 1.5em;
+}
+
+.about-goals ul ul li::before {
+  content: '•';
+  color: var(--accent);
+}
+
+/* Mission & Vision Section */
+.mission-vision {
+  padding: 6em 0;
+  position: relative;
+  background: var(--light);
+  overflow: hidden;
+}
+
+.mission-vision::before {
+  content: '';
+  position: absolute;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 5px;
+  background: var(--primary);
+}
+
+.mission-vision h2 {
+  text-align: center;
+  margin-bottom: 3rem !important;
+  font-size: 2.5em !important;
+  color: var(--primary) !important;
+  position: relative;
+  display: inline-block;
+  left: 50%;
+  transform: translateX(-50%);
+}
+
+.mission-vision h2::after {
+  content: '';
+  position: absolute;
+  bottom: -10px;
+  left: 50%;
+  transform: translateX(-50%);
+  width: 80px;
+  height: 3px;
+  background: var(--accent);
+  transition: width 0.3s ease;
+}
+
+.mission-vision h2:hover::after {
+  width: 120px;
+}
+
+/* Card Styles */
+.hover-card {
+  border: none;
+  border-radius: 8px;
+  overflow: hidden;
+  transition: all 0.3s ease;
+  height: 100%;
+  background: var(--white);
+  box-shadow: 0 5px 15px rgba(0, 0, 0, 0.05);
+  border-top: 4px solid var(--primary);
+  position: relative;
+  z-index: 1;
+}
+
+.hover-card::before {
+  content: '';
+  position: absolute;
+  top: 0;
+  left: 0;
+  right: 0;
+  height: 4px;
+  background: linear-gradient(90deg, var(--secondary), var(--accent));
+  transform: scaleX(0);
+  transform-origin: left;
+  transition: transform 0.5s ease;
+  z-index: 2;
+}
+
+.hover-card:hover {
+  transform: translateY(-5px);
+  box-shadow: 0 10px 25px rgba(0, 0, 0, 0.1);
+  background: var(--white);
+  border-top-color: var(--secondary);
+}
+
+.hover-card:hover::before {
+  transform: scaleX(1);
+}
+
+/* Icon Styles */
+.icon-wrapper {
+  width: 80px;
+  height: 80px;
+  margin: 0 auto 1.5rem;
+  border-radius: 50%;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  position: relative;
+  transition: all 0.3s ease;
+}
+
+.icon-wrapper::before {
+  content: '';
+  position: absolute;
+  width: 100%;
+  height: 100%;
+  border-radius: 50%;
+  opacity: 0.1;
+  transition: all 0.3s ease;
+}
+
+.vision-icon {
+  color: #3498db; /* Blue */
+  font-size: 2.5rem;
+  transition: all 0.3s ease;
+}
+
+.mission-icon {
+  color: #e74c3c; /* Red */
+  font-size: 2.5rem;
+  transition: all 0.3s ease;
+}
+
+.values-icon {
+  color: #2ecc71; /* Green */
+  font-size: 2.5rem;
+  transition: all 0.3s ease;
+}
+
+.hover-card:hover .icon-wrapper {
+  transform: scale(1.1) translateY(-5px);
+}
+
+.hover-card:hover .vision-icon {
+  color: #2980b9;
+  transform: rotate(10deg);
+}
+
+.hover-card:hover .mission-icon {
+  color: #c0392b;
+  transform: scale(1.1);
+}
+
+.hover-card:hover .values-icon {
+  color: #27ae60;
+  transform: rotate(-10deg);
+}
+
+.hover-card .card-body {
+  padding: 2.5rem;
+  position: relative;
+  z-index: 1;
+}
+
+.hover-card h3 {
+  color: var(--primary);
+  font-size: 1.5em;
+  margin-bottom: 1.2rem;
+  font-weight: 600;
+  position: relative;
+  display: inline-block;
+  padding-bottom: 0.5rem;
+  transition: all 0.3s ease;
+  text-transform: uppercase;
+  letter-spacing: 0.5px;
+}
+
+.hover-card h3::after {
+  content: '';
+  position: absolute;
+  bottom: 0;
+  left: 50%;
+  transform: translateX(-50%);
+  width: 40px;
+  height: 3px;
+  background: var(--secondary);
+  transition: all 0.3s ease;
+  border-radius: 2px;
+}
+
+.hover-card:hover h3 {
+  color: var(--accent);
+}
+
+.hover-card:hover h3::after {
+  width: 60px;
+  background: var(--secondary);
+}
+
+.hover-card p {
+  color: #666;
+  line-height: 1.8;
+  margin-bottom: 0;
+  font-size: 1.05em;
+  transition: all 0.3s ease;
+}
+
+.hover-card:hover p {
+  color: #555;
+}
+
+/* Responsive adjustments */
+@media (max-width: 991.98px) {
+  .hover-card {
+    margin-bottom: 2rem;
+  }
+  
+  .mission-vision h2 {
+    font-size: 2em !important;
+  }
+  
+  .hover-card .card-body {
+    padding: 2rem 1.5rem;
+  }
+  
+  .icon-wrapper {
+    width: 70px;
+    height: 70px;
+  }
+  
+  .vision-icon,
+  .mission-icon,
+  .values-icon {
+    font-size: 2rem;
+  }
+}
+
+@media (max-width: 767.98px) {
+  .mission-vision {
+    padding: 4em 0;
+  }
+  
+  .mission-vision h2 {
+    font-size: 1.8em !important;
+    margin-bottom: 2rem !important;
+  }
+  
+  .hover-card h3 {
+    font-size: 1.3em;
+  }
+  
+  .hover-card p {
+    font-size: 1em;
+  }
+  
+  .icon-wrapper {
+    width: 60px;
+    height: 60px;
+    margin-bottom: 1rem;
+  }
+  
+  .vision-icon,
+  .mission-icon,
+  .values-icon {
+    font-size: 1.8rem;
+  }
+}
+
+/* Responsive Styles */
+@media screen and (max-width: 1199px) {
+  .hero-aboutus h1 {
+    font-size: 2.8em;
+  }
+  
+  .hero-aboutus .subtitle {
+    width: 85%;
+    font-size: 1.1em;
+  }
+  
+  .aboutus-container h2 {
+    font-size: 2em;
+  }
+}
+
+/* Tablets */
+@media screen and (max-width: 991px) {
+  .hero-aboutus {
+    min-height: 50vh;
+    padding: 6em 1em;
+  }
+  
+  .aboutus-container .container,
+  .function-goals .container,
+  .mission-vision .container {
+    padding: 0 1.5em;
+  }
+  
+  .about-goals {
+    padding: 1.8em;
+  }
+  
+  .mission-vision .card-body {
+    padding: 1.8em;
+  }
+}
+
+/* Small Tablets */
+@media screen and (max-width: 767px) {
+  .hero-aboutus h1 {
+    font-size: 2.5em;
+  }
+  
+  .hero-aboutus .subtitle {
+    width: 90%;
+    font-size: 1em;
+  }
+  
+  .aboutus-container {
+    padding: 3em 0;
+  }
+  
+  .function-goals,
+  .mission-vision {
+    padding: 3em 0;
+  }
+  
+  .about-goals {
+    margin-bottom: 2em;
+  }
+}
+
+/* Mobile */
+@media screen and (max-width: 575px) {
+  .hero-aboutus {
+    min-height: 60vh;
+    padding: 5em 1em;
+  }
+  
+  .hero-aboutus h1 {
+    font-size: 2.2em;
+  }
+  
+  .hero-aboutus .subtitle {
+    width: 100%;
+    font-size: 0.95em;
+  }
+  
+  .aboutus-container h2 {
+    font-size: 1.8em;
+  }
+  
+  .aboutus-container .container,
+  .function-goals .container,
+  .mission-vision .container {
+    padding: 0 1em;
+  }
+  
+  .about-goals,
+  .mission-vision .card-body {
+    padding: 1.5em;
+  }
+  
+  .about-goals ul li {
+    font-size: 0.95em;
+    padding-left: 1.5em;
+  }
+  
+  .mission-vision h2 {
+    font-size: 2em;
+    margin-bottom: 1.5em;
+  }
+  
+  .mission-vision .card-title {
+    font-size: 1.3em;
+  }
+  
+  .mission-vision .card-text {
+    font-size: 0.95em;
+  }
+}
+
+/* Small Mobile */
+@media screen and (max-width: 375px) {
+  .hero-aboutus h1 {
+    font-size: 2em;
+  }
+  
+  .aboutus-container h2 {
+    font-size: 1.6em;
+  }
+  
+  .about-goals,
+  .mission-vision .card-body {
+    padding: 1.2em;
+  }
+}
