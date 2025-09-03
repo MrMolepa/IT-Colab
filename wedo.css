@@ -1,0 +1,77 @@
+@import url('https://fonts.googleapis.com/css2?family=Montserrat:wght@300;400;600&display=swap');
+
+    body {
+      font-family: Arial, sans-serif;
+      margin: 0;
+      padding: 0;
+    }
+
+    section {
+      height: 100vh;
+      display: flex;
+      justify-content: center;
+      align-items: center;
+      font-size: 2rem;
+    }
+
+    .reveal {
+      opacity: 0;
+      transform: translateY(40px);
+      transition: all 1s ease;
+    }
+
+    .reveal.active {
+      opacity: 1;
+      transform: translateY(0);
+    }
+    .services-list li {
+  font-size: 1.75rem; /* Adjust as needed */
+}
+.what-we-title, 
+.services-list li {
+  font-family: 'Montserrat', sans-serif;
+  font-weight: 300; /* thin */
+}
+.what-we-title {
+  
+}
+.modern-btn {
+  font-family: 'Montserrat', sans-serif; /* matches title & list */
+  font-weight: 300; /* thin style */
+  font-size: 1.1rem; /* slightly bigger for readability */
+  padding:1.4rem 1.4rem; /* sleek spacing */
+  border-radius:5px; /* pill-shaped for modern look */
+  text-transform: uppercase; /* optional, feels more modern */
+  letter-spacing: 1px; /* airy, stylish spacing */
+  
+  background: #3483fa;
+  color: white;
+  border: 2px solid #3483fa;
+  
+}
+
+/* Hover effect */
+.modern-btn:hover {
+   /* Bootstrap primary hover tone */
+  
+  box-shadow: 0px 4px 12px rgba(0, 0, 0, 0.15);
+}
+.highlight {
+  padding: 5px 10px;
+  border-radius: 6px;
+  text-shadow: 0 0 10px rgba(71, 129, 255, 0.6); /* soft golden glow */
+  display: inline-block;
+  background-color: rgba(255, 255, 255, 0.05); /* optional: subtle background */
+  transition: box-shadow 0.3s ease-in-out;
+}
+
+.highlight:hover {
+  text-shadow: 0 0 15px rgba(0, 106, 255, 0.9); /* brighter on hover */
+}
+.services-btn {
+  margin-top: 40px !important;
+}
+
+
+
+
