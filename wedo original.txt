@@ -1,0 +1,56 @@
+import React from "react";
+import {
+  Link,
+} from "react-router-dom";
+
+class Wedo extends React.Component {
+  render() {
+    return (
+      <section className="what-we-do">
+        <div className="container py-5">
+          <div className="row align-items-end">
+            <div className="col-lg-12  mb-lg-0">
+              <div>
+                <h2>What we do</h2>
+                <div className="custom-separator mx-auto"></div>
+
+                <ul className="list-unstyled my-5 text-small text-left">
+                  <li className="mb-3">
+                    <i className="fa fa-check mr-2 text-primary"></i> EVALUATION
+                    OF FOREIGN RESULTS
+                  </li>
+                  <li className="mb-3">
+                    <i className="fa fa-check mr-2 text-primary"></i>{" "}
+                    CERTIFICATE MIGRATION
+                  </li>
+                  <li className="mb-3">
+                    <i className="fa fa-check mr-2 text-primary"></i>{" "}
+                    VERIFICATION AND PROFICIENCY
+                  </li>
+                  <li className="mb-3">
+                    <i className="fa fa-check mr-2 text-primary"></i> JC/LGCSE
+                    Results Printing
+                  </li>
+                  <li className="mb-3">
+                    <i className="fa fa-check mr-2 text-primary"></i>{" "}
+                    CERTIFICATE REPLACEMENT
+                  </li>
+                  <li className="mb-3">
+                    <i className="fa fa-check mr-2 text-primary"></i>{" "}
+                    REGISTRATION OF EXAMINATION CENTRES
+                  </li>
+
+                 
+                </ul>
+
+                <Link to="/services" className="btn btn-primary"> Read more</Link>
+               
+              </div>
+            </div>
+          </div>
+        </div>
+      </section>
+    );
+  }
+}
+export default Wedo;
