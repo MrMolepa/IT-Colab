@@ -1,0 +1,542 @@
+/*********** Services **********/
+.services-hero {
+    padding-top: 1.5em;
+}
+
+
+.services-hero .service-hero_right video {
+    margin: 2em 7em;
+}
+
+.services-hero .service-hero_right .service-image {
+    width: 40rem;
+    border-radius: 10px;
+}
+
+/* Hero paragraph styling */
+    .service-hero_paragraph {
+        text-align: justify;
+        color: #333; /* darker color for better readability*/
+        line-height: 1.6; /* improves readability */
+}
+
+.services {
+    padding: 2em 2em;
+    background-color: #f1f6ff;
+}
+
+/* Service Card Styling */
+.services .box {
+    background: #fff;
+    border-radius: 12px;
+    box-shadow: 0 2px 8px rgba(0,0,0,0.08);
+    transition: all 0.3s ease;
+    height: 100%;
+    display: flex;
+    flex-direction: column;
+    justify-content: space-between;
+    border: none;
+    overflow: hidden;
+}
+
+/* Modern Circular Service Icons */
+.service-icon-container {
+    display: flex;
+    justify-content: flex-start;
+    align-items: center;
+}
+
+.service-icon {
+    width: 60px;
+    height: 60px;
+    border-radius: 12px;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    box-shadow: 0 4px 20px rgba(0, 0, 0, 0.1);
+    transition: transform 0.3s ease, box-shadow 0.3s ease;
+    padding: 12px;
+}
+
+.service-icon i {
+    font-size: 2.5rem;
+    color: white;
+    transition: inherit;
+}
+
+.service-icon svg {
+    width: 28px;
+    height: 28px;
+    transition: inherit;
+}
+
+/* Individual Icon Colors */
+.evaluation-icon {
+    background: linear-gradient(135deg, #667eea 0%, #764ba2 100%);
+}
+
+.printing-icon {
+    background: linear-gradient(135deg, #4facfe 0%, #00f2fe 100%);
+}
+
+.verification-icon {
+    background: linear-gradient(135deg, #43e97b 0%, #38f9d7 100%);
+}
+
+.certificate-icon {
+    background: linear-gradient(135deg, #fa709a 0%, #fee140 100%);
+}
+
+.migration-icon {
+    background: linear-gradient(135deg, #a8edea 0%, #fed6e3 100%);
+}
+
+.registration-icon {
+    background: linear-gradient(135deg, #ffecd2 0%, #fcb69f 100%);
+}
+
+.support-icon {
+    background: linear-gradient(135deg, #667eea 0%, #764ba2 100%);
+}
+
+.institutional-icon {
+    background: linear-gradient(135deg, #f093fb 0%, #f5576c 100%);
+}
+
+
+
+.service-icon:hover {
+    transform: translateY(-5px);
+    box-shadow: 0 8px 25px rgba(0, 0, 0, 0.15);
+}
+
+/* Legacy icon styles for backward compatibility */
+.services .box i {
+    color: #d2b356;
+    transition: inherit;
+    transition-delay: 0s
+}
+
+/* Headings */
+.services .box h4 {
+    font-size: 1.2rem;
+    font-weight: 600;
+    margin-bottom: 15px;
+    color: #003366;
+    transition: inherit;
+    transition-delay: .05s;
+}
+
+.services p {
+    color: #dfdfdf;
+    transition: inherit;
+    transition-delay: .1s;
+}
+
+/* Buttons */
+.services .box .btn {
+    font-size: 0.9rem;
+    border-radius: 6px;
+    margin-top: 10px;
+}
+
+/* Read more */
+.services .readmore {
+    display: inline-block;
+    font-size: 0.85rem;
+    color: #0d6efd;
+    text-decoration: none;
+    margin-top: 10px;
+    overflow: hidden;
+    position: relative;
+    padding-right: 2rem;
+    width: 100%;
+}
+
+.services .readmore:before {
+    animation: ts-link-arrow-effect-animation-out;
+    animation-fill-mode: forwards;
+    animation-duration: .4s;
+    animation-timing-function: cubic-bezier(.6, .01, 0, 1);
+    background-color: #d2b356;
+    bottom: 0;
+    height: .125rem;
+    margin: auto;
+    left: 0;
+    content: '';
+    position: absolute;
+    top: 0;
+    width: 100%;
+    transform: scaleX(.2);
+    transform-origin: left center;
+    z-index: 0;
+}
+
+.services .readmore span {
+    color: #000;
+    position: relative;
+    transform: translateX(-200%);
+    display: inline-block;
+    transition: .6s cubic-bezier(.6, .01, 0, 1);
+}
+
+/* Lists */
+.services .box ul {
+    padding-left: 18px;
+    margin-bottom: 15px;
+    font-size: 0.95rem;
+    list-style-type: none;
+    position: relative;
+    z-index: 0;
+}
+
+.services .box ul li {
+    margin-bottom: 6px;
+    display: block;
+}
+
+.services li:before {
+    content: '✓';
+    position: absolute;
+    left: 0;
+    background: #eef;
+    padding: 0 0.2em;
+    color: green;
+    font-weight: bold;
+}
+
+
+.services li {
+    text-shadow: 0 0 0px transparent;
+    overflow: hidden;
+    margin-left: 1.8em;
+}
+
+.services .readmore span ul {
+    margin-bottom: 0.1rem !;
+
+}
+
+.services .readmore span ul li {
+    font-size: 10px !important;
+}
+
+.services .readmore:hover {
+    text-decoration: underline;
+}
+
+.services .box:hover .readmore span {
+    transform: translateX(0%);
+}
+
+.services .box:hover .readmore:before {
+    animation: ts-link-arrow-effect-animation-in;
+    animation-fill-mode: forwards;
+    animation-duration: .4s;
+    animation-timing-function: cubic-bezier(.6, .01, 0, 1);
+}
+
+.services .box:hover {
+    transform: translateY(-6px);
+    box-shadow: 0 8px 20px rgba(0,0,0,0.15);
+}
+
+.services .box:hover .service-icon {
+    transform: translateY(-5px);
+    box-shadow: 0 12px 30px rgba(0, 0, 0, 0.2);
+}
+
+@keyframes ts-link-arrow-effect-animation-out {
+    0% {
+        transform-origin: right center;
+        transform: scaleX(.2);
+    }
+
+    70% {
+        transform-origin: right center;
+    }
+
+    71% {
+        transform-origin: left center;
+        transform: scaleX(1);
+    }
+
+    100% {
+        transform-origin: left center;
+        transform: scaleX(.2);
+    }
+}
+
+@keyframes ts-link-arrow-effect-animation-in {
+    0% {
+        transform-origin: left center;
+        transform: scaleX(.2);
+    }
+
+    70% {
+        transform-origin: left center;
+        transform: scaleX(1);
+    }
+
+    71% {
+        transform-origin: right center;
+    }
+
+    100% {
+        transform-origin: right center;
+        transform: scaleX(.2);
+    }
+}
+
+
+/* 320px — 480px: Mobile devices */
+@media screen and (min-width: 320px) and (max-width: 480px) {
+    .services-hero {
+        padding-top: 2em;
+    }
+
+    .services {
+        padding: 0.5em;
+    }
+
+    .services li:before {
+        content: '✓';
+        position: absolute;
+        left: -20px;
+        background: #eef;
+        padding: 0 0.2em;
+        color: green;
+        font-weight: bold;
+    }
+*/
+    .services-hero .service-hero_right video {
+        margin:2em auto;
+        width: 100%;
+    }
+
+    
+}
+
+/* 481px — 768px: iPads, Tablets. */
+@media screen and (min-width: 481px) and (max-width: 768px) {}
+
+/* ========================= */
+/* Key Features Styling      */
+/* ========================= */
+.services .box .key-features {
+  display: flex;
+  align-items: center;
+  font-weight: 600;
+  font-size: 1rem;
+  color: #555;
+  margin: 12px 0 10px;
+}
+
+.services .box .key-features::before {
+  content: "⏱"; /* clock icon */
+  margin-right: 6px;
+  font-size: 0.95rem;
+  color: #999;
+}
+
+.services .box ul {
+  list-style: none;
+  padding-left: 0;
+  margin: 0;
+}
+
+.services .box li {
+  display: flex;
+  align-items: center;
+  margin-bottom: 8px;
+  font-size: 0.95rem;
+  color: #333;
+}
+
+/* Circular green checkmark */
+.services .box li::before {
+  content: "✔";
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  margin-right: 8px;
+  width: 18px;
+  height: 18px;
+  border: 2px solid #4caf50;
+  border-radius: 50%;
+  font-size: 0.7rem;
+  color: #4caf50;
+}
+
+/* Enhanced hover effects for service icons */
+.service-icon:hover {
+    transform: translateY(-8px) scale(1.1);
+    box-shadow: 0 12px 35px rgba(0, 0, 0, 0.2);
+}
+
+/* Enhanced card content hover effects */
+.services .box:hover h4 {
+    color: #001a33;
+    transform: translateY(-2px);
+}
+
+.services .box:hover .key-features {
+    color: #333;
+}
+
+.services .box:hover .btn {
+    transform: translateY(-2px);
+    box-shadow: 0 4px 12px rgba(13, 110, 253, 0.3);
+}
+
+/* Enhanced readmore hover effects */
+.services .box:hover .readmore {
+    color: #0056b3;
+}
+
+.services .box:hover .readmore span {
+    transform: translateX(0%);
+}
+
+/* Smooth transitions for all interactive elements */
+.services .box h4,
+.services .box .key-features,
+.services .box .btn,
+.services .box li,
+.services .box li::before,
+.services .box .readmore,
+.services .box .readmore span {
+    transition: all 0.3s cubic-bezier(0.175, 0.885, 0.32, 1.275);
+}
+
+/* Card entrance animation enhancement */
+.services .box {
+    animation: fadeInUp 0.6s ease-out;
+}
+
+@keyframes fadeInUp {
+    from {
+        opacity: 0;
+        transform: translateY(30px);
+    }
+    to {
+        opacity: 1;
+        transform: translateY(0);
+    }
+}
+
+/* Staggered animation for cards */
+.services .box:nth-child(1) { animation-delay: 0.1s; }
+.services .box:nth-child(2) { animation-delay: 0.2s; }
+.services .box:nth-child(3) { animation-delay: 0.3s; }
+.services .box:nth-child(4) { animation-delay: 0.4s; }
+.services .box:nth-child(5) { animation-delay: 0.5s; }
+
+/* Enhanced focus states for accessibility */
+.services .box:focus-within {
+    outline: 2px solid #007bff;
+    outline-offset: 2px;
+}
+
+/* Smooth icon rotation on hover */
+.services .box:hover .service-icon svg {
+    transform: rotate(5deg) scale(1.1);
+}
+
+/* Colored card shadow on hover (no markup changes, uses :has) */
+.services .box:hover:has(.evaluation-icon) {
+    box-shadow: 0 20px 40px rgba(102, 126, 234, 0.25), 0 8px 16px rgba(118, 75, 162, 0.2);
+}
+.services .box:hover:has(.printing-icon) {
+    box-shadow: 0 20px 40px rgba(79, 172, 254, 0.25), 0 8px 16px rgba(0, 242, 254, 0.2);
+}
+.services .box:hover:has(.verification-icon) {
+    box-shadow: 0 20px 40px rgba(67, 233, 123, 0.25), 0 8px 16px rgba(56, 249, 215, 0.2);
+}
+.services .box:hover:has(.certificate-icon) {
+    box-shadow: 0 20px 40px rgba(250, 112, 154, 0.25), 0 8px 16px rgba(254, 225, 64, 0.2);
+}
+.services .box:hover:has(.migration-icon) {
+    box-shadow: 0 20px 40px rgba(168, 237, 234, 0.25), 0 8px 16px rgba(254, 214, 227, 0.2);
+}
+
+/* Class-based colored card shadow on hover (broad browser support) */
+.services .box.evaluation-card:hover {
+    box-shadow: 0 20px 40px rgba(102, 126, 234, 0.25), 0 8px 16px rgba(118, 75, 162, 0.2);
+}
+.services .box.printing-card:hover {
+    box-shadow: 0 20px 40px rgba(79, 172, 254, 0.25), 0 8px 16px rgba(0, 242, 254, 0.2);
+}
+.services .box.verification-card:hover {
+    box-shadow: 0 20px 40px rgba(67, 233, 123, 0.25), 0 8px 16px rgba(56, 249, 215, 0.2);
+}
+.services .box.certificate-card:hover {
+    box-shadow: 0 20px 40px rgba(250, 112, 154, 0.25), 0 8px 16px rgba(254, 225, 64, 0.2);
+}
+.services .box.migration-card:hover {
+    box-shadow: 0 20px 40px rgba(168, 237, 234, 0.25), 0 8px 16px rgba(254, 214, 227, 0.2);
+}
+
+/* Disable animations on list items and their icons */
+.services .box:hover li {
+    transform: none;
+    color: inherit;
+}
+.services .box:hover li::before {
+    transform: none;
+    background: none;
+    color: #4caf50;
+}
+.services .box li,
+.services .box li::before {
+    transition: none !important;
+}
+
+/* Restore checklist icons in read-more lists for specific cards (4 and 5) */
+.services .box.certificate-card .readmore ul li::before,
+.services .box.migration-card .readmore ul li::before {
+    content: "✔" !important;
+    display: inline-flex !important;
+    align-items: center !important;
+    justify-content: center !important;
+    margin-right: 8px !important;
+    width: 18px !important;
+    height: 18px !important;
+    border: 2px solid #4caf50 !important;
+    border-radius: 50% !important;
+    font-size: 0.7rem !important;
+    color: #4caf50 !important;
+}
+.services .box.certificate-card .readmore ul li,
+.services .box.migration-card .readmore ul li {
+    margin-left: unset;
+}
+
+/* Align read-more checklist icons to match standard list style (cards 4 & 5) */
+.services .box.certificate-card .readmore ul,
+.services .box.migration-card .readmore ul {
+    list-style: none;
+    padding-left: 0;
+    margin: 0;
+}
+.services .box.certificate-card .readmore ul li,
+.services .box.migration-card .readmore ul li {
+    display: flex !important;
+    align-items: center !important;
+    margin-left: 0 !important;
+}
+.services .box.certificate-card .readmore ul li::before,
+.services .box.migration-card .readmore ul li::before {
+    content: "✔" !important;
+    position: static !important;
+    display: inline-flex !important;
+    align-items: center !important;
+    justify-content: center !important;
+    margin-right: 8px !important;
+    width: 18px !important;
+    height: 18px !important;
+    border: 2px solid #4caf50 !important;
+    border-radius: 50% !important;
+    font-size: 0.7rem !important;
+    color: #4caf50 !important;
+}
