@@ -1,0 +1,635 @@
+/* Services Section */
+.services {
+    padding: 60px 0;
+    background-color: #f8f9fa;
+}
+
+.services h2 {
+    text-align: center;
+    font-size: 2.2rem;
+    margin-bottom: 15px;
+    color: #333;
+    font-weight: 600;
+    text-transform: uppercase;
+    letter-spacing: 1px;
+}
+
+.custom-separator {
+    width: 60px;
+    height: 3px;
+    background: #2c7be5;
+    margin: 0 auto 50px;
+    border: none;
+}
+
+/* Service Card Styling */
+.services .box {
+    background: #fff;
+    border-radius: 8px;
+    box-shadow: 0 1px 3px rgba(0,0,0,0.05);
+    transition: all 0.3s ease;
+    height: 100%;
+    padding: 30px 25px;
+    margin-bottom: 30px;
+    border: 1px solid #e2e8f0;
+    position: relative;
+    overflow: hidden;
+    text-align: left;
+    display: flex;
+    flex-direction: column;
+    background-clip: padding-box;
+    border-top: 4px solid transparent;
+}
+
+.services .box:hover {
+    box-shadow: 0 4px 20px rgba(0,0,0,0.06);
+    transform: translateY(-3px);
+    border-color: #2c7be5;
+}
+
+/* Add colored top border based on service type - matching icon colors */
+.services .box {
+    border-top: 2px solid transparent;
+    transition: all 0.3s ease;
+}
+
+.services .box.evaluation-card {
+    border-top-color: #2c7be5;
+}
+
+.services .box.printing-card {
+    border-top-color: #00c9a7;
+}
+
+.services .box.verification-card {
+    border-top-color: #e74c3c;
+}
+
+.services .box.certificate-card {
+    border-top-color: #9b59b6;
+}
+
+.services .box.migration-card {
+    border-top-color: #f39c12;
+}
+
+/* Service Icons */
+.service-icon-container {
+    margin-bottom: 20px;
+    text-align: left;
+}
+
+.service-icon {
+    width: 50px;
+    height: 50px;
+    border-radius: 50%;
+    display: inline-flex;
+    justify-content: center;
+    align-items: center;
+    margin-bottom: 15px;
+    transition: all 0.3s ease;
+    position: relative;
+    z-index: 1;
+    box-shadow: 0 4px 10px rgba(0,0,0,0.1);
+}
+
+.service-icon svg {
+    width: 22px;
+    height: 22px;
+    color: white;
+}
+
+/* Individual Icon Colors */
+.evaluation-icon { background: #2c7be5; }
+.printing-icon { background: #00c9a7; }
+.verification-icon { background: #e74c3c; }
+.certificate-icon { background: #9b59b6; }
+.migration-icon { background: #f39c12; }
+.registration-icon { background: #1abc9c; }
+.support-icon { background: #e67e22; }
+.institutional-icon { background: #7f8c8d; }
+
+/* Card Content */
+.services .box h4 {
+    font-size: 1.1rem;
+    font-weight: 600;
+    margin: 0 0 15px 0;
+    color: #2d3748;
+    text-align: left;
+    line-height: 1.4;
+    min-height: 3em;
+    display: flex;
+    align-items: center;
+}
+
+.key-features {
+    font-size: 0.95rem;
+    color: #2c7be5;
+    margin: 0 0 12px 0;
+    font-weight: 600;
+    text-align: left;
+    padding-bottom: 5px;
+    border-bottom: 1px solid #edf2f7;
+    display: block;
+    width: 100%;
+    text-transform: uppercase;
+    letter-spacing: 0.5px;
+}
+
+.services .box ul {
+    padding: 0;
+    margin: 0 0 20px 0;
+    list-style: none;
+    flex-grow: 1;
+}
+
+.services .box ul li {
+    padding: 6px 0;
+    color: #4a5568;
+    font-size: 0.9rem;
+    line-height: 1.5;
+    display: flex;
+    align-items: flex-start;
+}
+
+.services .box ul li:before {
+    content: '';
+    display: none;
+}
+
+/* Button Styling */
+.services .box .btn {
+    display: block;
+    width: 100%;
+    padding: 12px 20px;
+    background: transparent;
+    color: #2c7be5;
+    border: 1px solid #2c7be5;
+    border-radius: 30px;
+    font-size: 0.8rem;
+    font-weight: 600;
+    text-transform: uppercase;
+    letter-spacing: 0.5px;
+    transition: all 0.3s ease;
+    margin-top: 15px;
+    text-decoration: none;
+    text-align: center;
+    cursor: pointer;
+    position: relative;
+    overflow: hidden;
+    z-index: 1;
+}
+
+.services .box .btn:before {
+    content: '';
+    position: absolute;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    background: #2c7be5;
+    z-index: -1;
+    transform: scaleX(0);
+    transform-origin: right;
+    transition: transform 0.3s ease;
+}
+
+.services .box .btn:hover {
+    color: #fff;
+}
+
+.services .box .btn:hover:before {
+    transform: scaleX(1);
+    transform-origin: left;
+}
+
+.services .box .btn:hover {
+    transform: translateY(-2px);
+    box-shadow: 0 4px 8px rgba(44, 123, 229, 0.3);
+    color: white;
+}
+
+/* Read more section */
+.readmore {
+    text-align: left;
+    margin-top: 0;
+    padding-top: 0;
+    color: #666;
+    font-size: 0.9rem;
+    line-height: 1.6;
+    max-height: 0;
+    overflow: hidden;
+    opacity: 0;
+    transition: all 0.3s ease-in-out;
+    transform: translateY(-10px);
+}
+
+.services .box:hover .readmore {
+    margin-top: 15px;
+    padding-top: 15px;
+    max-height: 500px;
+    opacity: 1;
+    transform: translateY(0);
+    border-top: 1px solid #eee;
+}
+
+.readmore h6 {
+    color: #333;
+    margin-bottom: 10px;
+    font-size: 0.95rem;
+    font-weight: 600;
+}
+
+/* Popular Badge */
+.popular-badge {
+    position: absolute;
+    top: 15px;
+    right: 15px;
+    background: #ffc107;
+    color: #000;
+    padding: 4px 12px;
+    border-radius: 20px;
+    font-size: 0.7rem;
+    font-weight: 600;
+    text-transform: uppercase;
+    letter-spacing: 0.5px;
+    box-shadow: 0 2px 5px rgba(0,0,0,0.1);
+    z-index: 1;
+}
+
+.readmore ul {
+    margin-bottom: 0;
+    padding-left: 0;
+}
+
+.readmore ul li {
+    padding-left: 0 !important;
+    font-size: 0.85rem !important;
+    color: #718096;
+}
+
+/* Responsive adjustments */
+@media (max-width: 768px) {
+    .services .box {
+        margin-bottom: 25px;
+    }
+    
+    .services h2 {
+        font-size: 1.8rem;
+    }
+    
+    .services .box {
+        padding: 20px 15px;
+    }
+}
+
+/* Hero section */
+.services-hero {
+    padding: 60px 0;
+    background-color: #fff;
+}
+
+.services-hero .service-hero_right video {
+    max-width: 100%;
+    height: auto;
+    border-radius: 12px;
+    box-shadow: 0 10px 30px rgba(0, 0, 0, 0.1);
+}
+
+.service-hero_paragraph {
+    color: #555;
+    line-height: 1.8;
+    margin-bottom: 20px;
+    font-size: 1.05rem;
+}
+
+.services li {
+    text-shadow: 0 0 0 transparent;
+    overflow: hidden;
+    margin-left: 1.8em;
+}
+
+.services .readmore:hover {
+    text-decoration: underline;
+}
+
+.services .box:hover .readmore span {
+    transform: translateX(0%);
+}
+
+.services .box:hover .readmore:before {
+    animation: ts-link-arrow-effect-animation-in;
+    animation-fill-mode: forwards;
+    animation-duration: .4s;
+    animation-timing-function: cubic-bezier(.6, .01, 0, 1);
+}
+
+.services .box:hover {
+    transform: translateY(-6px);
+    box-shadow: 0 8px 20px rgba(0,0,0,0.15);
+}
+
+.services .box:hover .service-icon {
+    transform: translateY(-5px);
+    box-shadow: 0 12px 30px rgba(0, 0, 0, 0.2);
+}
+
+/* Migration Certificate Button Adjustment */
+.services .box:nth-child(5) .btn {
+    margin-top: 5px !important;
+}
+
+@keyframes ts-link-arrow-effect-animation-out {
+    0% {
+        transform-origin: right center;
+        transform: scaleX(.2);
+    }
+
+    70% {
+        transform-origin: right center;
+    }
+
+    71% {
+        transform-origin: left center;
+        transform: scaleX(1);
+    }
+
+    100% {
+        transform-origin: left center;
+        transform: scaleX(.2);
+    }
+}
+
+@keyframes ts-link-arrow-effect-animation-in {
+    0% {
+        transform-origin: left center;
+        transform: scaleX(.2);
+    }
+
+    70% {
+        transform-origin: left center;
+        transform: scaleX(1);
+    }
+
+    71% {
+        transform-origin: right center;
+    }
+
+    100% {
+        transform-origin: right center;
+        transform: scaleX(.2);
+    }
+}
+
+
+/* 320px — 480px: Mobile devices */
+@media screen and (min-width: 320px) and (max-width: 480px) {
+    .services-hero {
+        padding-top: 2em;
+    }
+
+    .services {
+        padding: 0.5em;
+    }
+
+    .services li:before {
+        content: '✓';
+        position: absolute;
+        left: -20px;
+        background: #eef;
+        padding: 0 0.2em;
+        color: green;
+        font-weight: bold;
+    }
+*/
+    .services-hero .service-hero_right video {
+        margin:2em auto;
+        width: 100%;
+    }
+
+    
+}
+
+/* 481px — 768px: iPads, Tablets. */
+@media screen and (min-width: 481px) and (max-width: 768px) {}
+
+/* ========================= */
+/* Key Features Styling      */
+/* ========================= */
+.services .box .key-features {
+  display: flex;
+  align-items: center;
+  font-weight: 600;
+  font-size: 1rem;
+  color: #555;
+  margin: 12px 0 10px;
+}
+
+.services .box .key-features::before {
+  content: "⏱"; /* clock icon */
+  margin-right: 6px;
+  font-size: 0.95rem;
+  color: #999;
+}
+
+.services .box ul {
+  list-style: none;
+  padding-left: 0;
+  margin: 0;
+}
+
+.services .box li {
+  display: flex;
+  align-items: center;
+  margin-bottom: 8px;
+  font-size: 0.95rem;
+  color: #333;
+}
+
+/* Circular green checkmark */
+.services .box li::before {
+  content: "✔";
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  margin-right: 8px;
+  width: 18px;
+  height: 18px;
+  border: 2px solid #4caf50;
+  border-radius: 50%;
+  font-size: 0.7rem;
+  color: #4caf50;
+}
+
+/* Enhanced hover effects for service icons */
+.service-icon:hover {
+    transform: translateY(-8px) scale(1.1);
+    box-shadow: 0 12px 35px rgba(0, 0, 0, 0.2);
+}
+
+/* Enhanced card content hover effects */
+.services .box:hover h4 {
+    color: #001a33;
+    transform: translateY(-2px);
+}
+
+.services .box:hover .key-features {
+    color: #333;
+}
+
+.services .box:hover .btn {
+    transform: translateY(-2px);
+    box-shadow: 0 4px 12px rgba(13, 110, 253, 0.3);
+}
+
+/* Enhanced readmore hover effects */
+.services .box:hover .readmore {
+    color: #0056b3;
+}
+
+.services .box:hover .readmore span {
+    transform: translateX(0%);
+}
+
+/* Smooth transitions for all interactive elements */
+.services .box h4,
+.services .box .key-features,
+.services .box .btn,
+.services .box li,
+.services .box li::before,
+.services .box .readmore,
+.services .box .readmore span {
+    transition: all 0.3s cubic-bezier(0.175, 0.885, 0.32, 1.275);
+}
+
+/* Card entrance animation enhancement */
+.services .box {
+    animation: fadeInUp 0.6s ease-out;
+}
+
+@keyframes fadeInUp {
+    from {
+        opacity: 0;
+        transform: translateY(30px);
+    }
+    to {
+        opacity: 1;
+        transform: translateY(0);
+    }
+}
+
+/* Staggered animation for cards */
+.services .box:nth-child(1) { animation-delay: 0.1s; }
+.services .box:nth-child(2) { animation-delay: 0.2s; }
+.services .box:nth-child(3) { animation-delay: 0.3s; }
+.services .box:nth-child(4) { animation-delay: 0.4s; }
+.services .box:nth-child(5) { animation-delay: 0.5s; }
+
+/* Enhanced focus states for accessibility */
+.services .box:focus-within {
+    outline: 2px solid #007bff;
+    outline-offset: 2px;
+}
+
+/* Smooth icon rotation on hover */
+.services .box:hover .service-icon svg {
+    transform: rotate(5deg) scale(1.1);
+}
+
+/* Colored card shadow on hover (no markup changes, uses :has) */
+.services .box:hover:has(.evaluation-icon) {
+    box-shadow: 0 20px 40px rgba(102, 126, 234, 0.25), 0 8px 16px rgba(118, 75, 162, 0.2);
+}
+.services .box:hover:has(.printing-icon) {
+    box-shadow: 0 20px 40px rgba(79, 172, 254, 0.25), 0 8px 16px rgba(0, 242, 254, 0.2);
+}
+.services .box:hover:has(.verification-icon) {
+    box-shadow: 0 20px 40px rgba(67, 233, 123, 0.25), 0 8px 16px rgba(56, 249, 215, 0.2);
+}
+.services .box:hover:has(.certificate-icon) {
+    box-shadow: 0 20px 40px rgba(250, 112, 154, 0.25), 0 8px 16px rgba(254, 225, 64, 0.2);
+}
+.services .box:hover:has(.migration-icon) {
+    box-shadow: 0 20px 40px rgba(168, 237, 234, 0.25), 0 8px 16px rgba(254, 214, 227, 0.2);
+}
+
+/* Class-based colored card shadow on hover (broad browser support) */
+.services .box.evaluation-card:hover {
+    box-shadow: 0 20px 40px rgba(102, 126, 234, 0.25), 0 8px 16px rgba(118, 75, 162, 0.2);
+}
+.services .box.printing-card:hover {
+    box-shadow: 0 20px 40px rgba(79, 172, 254, 0.25), 0 8px 16px rgba(0, 242, 254, 0.2);
+}
+.services .box.verification-card:hover {
+    box-shadow: 0 20px 40px rgba(67, 233, 123, 0.25), 0 8px 16px rgba(56, 249, 215, 0.2);
+}
+.services .box.certificate-card:hover {
+    box-shadow: 0 20px 40px rgba(250, 112, 154, 0.25), 0 8px 16px rgba(254, 225, 64, 0.2);
+}
+.services .box.migration-card:hover {
+    box-shadow: 0 20px 40px rgba(168, 237, 234, 0.25), 0 8px 16px rgba(254, 214, 227, 0.2);
+}
+
+/* Disable animations on list items and their icons */
+.services .box:hover li {
+    transform: none;
+    color: inherit;
+}
+.services .box:hover li::before {
+    transform: none;
+    background: none;
+    color: #4caf50;
+}
+.services .box li,
+.services .box li::before {
+    transition: none !important;
+}
+
+/* Restore checklist icons in read-more lists for specific cards (4 and 5) */
+.services .box.certificate-card .readmore ul li::before,
+.services .box.migration-card .readmore ul li::before {
+    content: "✔" !important;
+    display: inline-flex !important;
+    align-items: center !important;
+    justify-content: center !important;
+    margin-right: 8px !important;
+    width: 18px !important;
+    height: 18px !important;
+    border: 2px solid #4caf50 !important;
+    border-radius: 50% !important;
+    font-size: 0.7rem !important;
+    color: #4caf50 !important;
+}
+.services .box.certificate-card .readmore ul li,
+.services .box.migration-card .readmore ul li {
+    margin-left: unset;
+}
+
+/* Align read-more checklist icons to match standard list style (cards 4 & 5) */
+.services .box.certificate-card .readmore ul,
+.services .box.migration-card .readmore ul {
+    list-style: none;
+    padding-left: 0;
+    margin: 0;
+}
+.services .box.certificate-card .readmore ul li,
+.services .box.migration-card .readmore ul li {
+    display: flex !important;
+    align-items: center !important;
+    margin-left: 0 !important;
+}
+.services .box.certificate-card .readmore ul li::before,
+.services .box.migration-card .readmore ul li::before {
+    content: "✔" !important;
+    position: static !important;
+    display: inline-flex !important;
+    align-items: center !important;
+    justify-content: center !important;
+    margin-right: 8px !important;
+    width: 18px !important;
+    height: 18px !important;
+    border: 2px solid #4caf50 !important;
+    border-radius: 50% !important;
+    font-size: 0.7rem !important;
+    color: #4caf50 !important;
+}
