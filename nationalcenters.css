@@ -1,0 +1,21 @@
+
+
+.national-centers-hero h1{
+  font-size: 2.5em;
+  font-weight: 600;
+}
+
+/* 320px — 480px: Mobile devices */
+@media screen and (min-width: 320px) and (max-width: 480px) {
+  .national-centers-hero {
+      margin-top: 1.2rem;
+      height: 40vh;
+      padding: 6.5em 0;
+  }
+
+ 
+
+}
+
+/* 481px — 768px: iPads, Tablets. */
+@media screen and (min-width: 481px) and (max-width: 768px) {}

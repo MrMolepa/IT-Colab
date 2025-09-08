@@ -1,0 +1,128 @@
+.timetable-hero h1 {
+	font-size: 2.5em;
+	font-weight: 600;
+}
+
+.timetables-item-container {
+	width: 100%;
+	display: flex;
+	justify-content: center;
+	align-items: center;
+}
+
+.timetables-item {
+	display: flex;
+	flex-direction: column;
+	justify-content: center;
+	align-items: center;
+	width: 250px;
+	padding: 10px 10px;
+	height: 280px;
+	box-sizing: border-box;
+	margin: 30px;
+	position: relative;
+	background: #fff;
+	border-radius: 5px;
+	box-shadow: rgba(60, 64, 67, 0.3) 0px 1px 2px 0px, rgba(60, 64, 67, 0.15) 0px 1px 3px 1px;
+	cursor: pointer;
+}
+
+.timetables-item i {
+	font-size: 2em;
+	padding: 10px;
+	color: #d2b356;
+}
+
+.timetables-item h3 {
+	text-align: center;
+}
+
+.timetables-item p {
+	color: rgba(87, 105, 117, 0.90);
+	text-align: center;
+}
+
+.timetables-item-container .button {
+	width: 140px;
+	height: 40px;
+	border-radius: 5px;
+	border: 1px solid rgba(74, 144, 226, 0.50);
+	display: flex;
+	justify-content: center;
+	align-items: center;
+	color: #576975;
+	margin-top: 10px;
+}
+
+.timetables-item-container .bar {
+	width: 200px;
+	height: 6px;
+	position: absolute;
+	left: 50%;
+	top: 0%;
+	transform: translateX(-50%);
+	background-color: #4a90e2;
+	border-radius: 0px 0px 10px 10px;
+	display: none;
+	animation: bar 0.5s;
+}
+
+.timetables-item:hover {
+	box-shadow: 2px 2px 30px rgba(0, 0, 0, 0.08);
+	transition: all ease 0.3s;
+}
+
+.timetables .button:hover {
+	background-color: #4a90e2;
+	border: 1px solid #4a90e2;
+	color: #FFFFFF;
+	transition: all ease 0.3s;
+}
+
+.timetables-item:hover .bar {
+	display: block;
+}
+
+@keyframes bar {
+	0% {
+		width: 0px;
+	}
+
+	100% {
+		width: 200px;
+	}
+}
+
+/* 320px — 480px: Mobile devices */
+@media screen and (min-width: 320px) and (max-width: 480px) {
+	.timetable-hero {
+		margin-top: 1.2rem;
+		height: 40vh;
+		padding: 6.5em 0;
+	}
+
+
+}
+
+/* 481px — 768px: iPads, Tablets. */
+@media screen and (min-width: 481px) and (max-width: 768px) {}
+
+@media(max-width:1050px) {
+	.timetables-item-container {
+		flex-wrap: wrap;
+
+	}
+
+	.timetables {
+		height: auto;
+	}
+
+	.s-heading {
+		margin: 15px;
+	}
+
+	.timetables-item {
+		flex-grow: 1;
+	}
+
+}
