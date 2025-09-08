@@ -65,11 +65,11 @@
     background-clip: padding-box;
 }
 
-.eservice .box:hover {
+/* .eservice .box:hover {
     box-shadow: 0 4px 20px rgba(0,0,0,0.15);
     transform: translateY(-6px);
     border-color: #2c7be5;
-}
+} */
 
 .eservice .box h4 {
     font-size: 1.1rem;
@@ -159,26 +159,31 @@
 }
 
 .eservice .box .readmore {
-    text-align: left;
-    margin-top: 0;
-    padding-top: 0;
-    color: #666;
+    position: absolute;
+    left: 0;
+    right: 0;
+    bottom: 0;
+    background:#2c7be5;
+    color: #2d2d2d;
+    padding: 14px 18px;
     font-size: 0.9rem;
-    line-height: 1.6;
-    max-height: 0;
-    overflow: hidden;
-    opacity: 0;
-    transition: all 0.3s ease-in-out;
-    transform: translateY(-10px);
+    line-height: 1.5;
+    transform: translateY(100%);
+    transition: transform 0.3s ease-in-out;
+    z-index: 5;
+    box-shadow: 0 -6px 16px rgba(0, 0, 0, 0.15);
+    border-top-left-radius: 8px;
+    border-top-right-radius: 8px;
+    will-change: transform;
 }
 
 .eservice .box:hover .readmore {
-    margin-top: 15px;
-    padding-top: 15px;
-    max-height: 500px;
-    opacity: 1;
     transform: translateY(0);
-    border-top: 1px solid #eee;
+}
+
+.eservice .box .readmore h6,
+.eservice .box .readmore li {
+    color: #fff;
 }
 
 .eservice .popular-badge {
@@ -528,7 +533,7 @@
 }
 
 /* Read more section */
-.readmore {
+/* .readmore {
     text-align: left;
     margin-top: 0;
     padding-top: 0;
@@ -549,7 +554,7 @@
     opacity: 1;
     transform: translateY(0);
     border-top: 1px solid #eee;
-}
+} */
 
 .readmore h6 {
     color: #333;
