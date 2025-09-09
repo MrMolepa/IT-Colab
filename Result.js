@@ -7,9 +7,7 @@ import {
   Home as School, // Using Home icon as a replacement for School
   FileText, 
   Search, 
-  Filter, 
   Share2, 
-  Eye,
   AlertTriangle,
 } from 'react-feather';
 
@@ -99,13 +97,9 @@ const GET_RESULT_JC = gql`
 const Result = () => {
   const [activeTab, setActiveTab] = useState('all');
   const [searchTerm, setSearchTerm] = useState('');
-  const [showFilters, setShowFilters] = useState(false);
-  const [currentPage, setCurrentPage] = useState(0);
+    const [currentPage, setCurrentPage] = useState(0);
   const [itemsPerPage, setItemsPerPage] = useState(6); // 3 or 6 items
   const [filters, setFilters] = useState({
-    level: 'all',
-    year: '',
-    hasReport: 'all',
     sortBy: 'recent' // 'recent' or 'oldest'
   });
   
@@ -139,49 +133,16 @@ const Result = () => {
     }
   };
 
-  // Process, filter and sort results
+  // Process and sort results
   let processedResults = [...lgcseResults, ...jcResults]
     .filter(result => {
       if (!result || !result.attributes) return false;
       
       // Apply search term filter
       const searchLower = searchTerm.toLowerCase();
-      const matchesSearch = searchTerm === '' || 
+      return searchTerm === '' || 
         (result.attributes.level && result.attributes.level.toLowerCase().includes(searchLower)) ||
         (result.attributes.year && result.attributes.year.toString().includes(searchTerm));
-      
-      // Apply level filter
-      const matchesLevel = filters.level === 'all' || 
-        result.attributes.level === filters.level;
-      
-      // Apply year filter
-      const matchesYear = !filters.year || 
-        (result.attributes.year && result.attributes.year.toString() === filters.year);
-      
-      // Apply hasReport filter
-      const hasReport = (type) => {
-        if (type === 'top_achievers') {
-          return result.attributes.top_achievers?.data?.attributes?.url;
-        }
-        return result.attributes[`${type}_performance`]?.data?.attributes?.url;
-      };
-      
-      const matchesHasReport = 
-        filters.hasReport === 'all' ||
-        (filters.hasReport === 'with' && (
-          hasReport('school') || 
-          hasReport('subject') || 
-          hasReport('district') || 
-          hasReport('top_achievers')
-        )) ||
-        (filters.hasReport === 'without' && !(
-          hasReport('school') || 
-          hasReport('subject') || 
-          hasReport('district') || 
-          hasReport('top_achievers')
-        ));
-      
-      return matchesSearch && matchesLevel && matchesYear && matchesHasReport;
     });
 
   // Sort results
@@ -220,13 +181,11 @@ const Result = () => {
     setCurrentPage(0); // Reset to first page when changing items per page
   };
 
-  const handleFilterChange = (e) => {
-    const { name, value } = e.target;
-    setFilters(prev => ({
-      ...prev,
-      [name]: value
-    }));
-    setCurrentPage(0); // Reset to first page when filters change
+  const handleSortChange = (e) => {
+    setFilters({
+      sortBy: e.target.value
+    });
+    setCurrentPage(0); // Reset to first page when sort changes
   };
 
   // Statistics data (2022 figures)
@@ -241,7 +200,6 @@ const Result = () => {
   ];
 
   // Helper function to get current year
-  const currentYear = new Date().getFullYear();
   //const years= Array.from({length: 6}, (_, i) => currentYear - i); // Last 6 years
   return (
     <div className="results-dashboard">
@@ -312,7 +270,7 @@ const Result = () => {
               name="sortBy"
               className="filter-select"
               value={filters.sortBy}
-              onChange={handleFilterChange}
+              onChange={handleSortChange}
             >
               <option value="recent">Most Recent</option>
               <option value="oldest">Oldest First</option>
@@ -364,72 +322,8 @@ const Result = () => {
                 onChange={(e) => setSearchTerm(e.target.value)}
               />
             </div>
-            <button 
-              className={`filter-btn ${showFilters ? 'active' : ''}`}
-              onClick={() => setShowFilters(!showFilters)}
-            >
-              <Filter size={16} />
-              Filters
-            </button>
           </div>
         </div>
-
-        {/* Filters */}
-        {showFilters && (
-          <div className="filters-dropdown">
-            <div className="filter-group">
-              <label>Level</label>
-              <select 
-                value={filters.level}
-                onChange={(e) => setFilters({...filters, level: e.target.value})}
-              >
-                <option value="all">All Levels</option>
-                <option value="LGCSE">LGCSE</option>
-                <option value="JC">JC</option>
-              </select>
-            </div>
-            
-            <div className="filter-group">
-              <label>Year</label>
-              <select 
-                value={filters.year}
-                onChange={(e) => setFilters({...filters, year: e.target.value})}
-              >
-                <option value="">All Years</option>
-                {Array.from({length: 6}, (_, i) => currentYear - i).map(year => (
-                  <option key={year} value={year}>{year}</option>
-                ))}
-              </select>
-            </div>
-            
-            <div className="filter-group">
-              <label>Report Status</label>
-              <select 
-                value={filters.hasReport}
-                onChange={(e) => setFilters({...filters, hasReport: e.target.value})}
-              >
-                <option value="all">All Reports</option>
-                <option value="with">With Reports</option>
-                <option value="without">Without Reports</option>
-              </select>
-            </div>
-            
-            <button 
-              className="clear-filters"
-              onClick={() => {
-                setFilters({
-                  level: 'all',
-                  year: '',
-                  hasReport: 'all'
-                });
-                setSearchTerm('');
-              }}
-            >
-              Clear all filters
-            </button>
-          </div>
-        )}
-        
 
         {/* Results Grid */}
         <div className={`results-grid layout-${itemsPerPage <= 3 ? '3' : '6'}`}>
@@ -481,10 +375,6 @@ const Result = () => {
                 </div>
                 
                 <div className="card-actions">
-                  <button className="btn-preview">
-                    <Eye size={16} />
-                    <span>Preview</span>
-                  </button>
                   <div className="action-buttons">
                     {result.attributes.top_achievers?.data?.attributes?.url && (
                       <button
