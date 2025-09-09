@@ -105,7 +105,9 @@ const Services = () => {
           <div className="row g-4">
             {/* Service Card 1 */}
             <div className="col-md-6 col-lg-4">
-              <div className="box evaluation-card" data-aos="fade-up">
+              <div className="box evaluation-card" >
+                 <span className="requirements-label req-label-1" tabIndex="0" title="Show requirements">Requirements</span>
+           
                 <div className="service-icon-container">
                   <div className="service-icon evaluation-icon">
                     <svg width="24" height="24" viewBox="0 0 24 24" fill="none" xmlns="http://www.w3.org/2000/svg">
@@ -113,13 +115,22 @@ const Services = () => {
                     </svg>
                   </div>
                 </div>
+
                 <h4>Evaluation of Foreign Results</h4>
-                <h5 className="key-features">Key Features</h5>
-                <ul>
-                  <li>Evaluation Fee: M675.00</li>
-                  
-                  <li>Requirements: Copy of Statement of Results or Certificate</li>
-                </ul>
+                <div className="features-section" style={{position: "relative"}}>
+                  <h5 className="key-features">Key Features</h5>
+                    <ul>
+                      <li>Evaluation Fee: M675.00</li>
+                      
+                      <li>Results: available within 5 working days</li>
+                    </ul>
+                  <div className="requirements">
+                     <strong>Requirements:</strong>
+                    <ul>
+                    <li style={{color: "#000000ff"}}>Requirements: Copy of Statement of Results or Certificate</li>
+                    </ul>
+                  </div>
+                </div>
                 <a 
                   href="https://ecol.org.ls/services" 
                   className="btn"
@@ -128,18 +139,14 @@ const Services = () => {
                 >
                   Get Evaluation
                 </a>
-                <div className="readmore">
-                  <ul>
-                  <li>Results: available within 5 working days</li>
-                  </ul>
-                </div>
+               
               </div>
             </div>
 
             {/* Service Card 2 */}
             <div className="col-md-6 col-lg-4">
-              <div className="box printing-card" data-aos="fade-up" data-aos-delay="100">
-                <div className="popular-badge">Popular</div>
+              <div className="box printing-card" >
+               <span className="requirements-label req-label-2" tabIndex="0" title="Show requirements">Requirements</span>
                 <div className="service-icon-container">
                   <div className="service-icon printing-icon">
                     <svg width="24" height="24" viewBox="0 0 24 24" fill="none" xmlns="http://www.w3.org/2000/svg">
@@ -148,6 +155,7 @@ const Services = () => {
                   </div>
                 </div>
                 <h4>GRADE 7/LGCSE Results Printing</h4>
+                 <div className="features-section" style={{position: "relative"}}>
                 <h5 className="key-features">Key Features</h5>
                 <ul>
                  
@@ -155,8 +163,15 @@ const Services = () => {
                   <li>Grade 7 - Printing Fee: M220.00</li>
                   <li>Correction of spelling: M260.00</li>
       
-                  <li>Requirements: Letter From School</li>
+                  <li>Results:within a day</li>
                 </ul>
+               <div className="requirements">
+                  <strong>Requirements:</strong>
+                  <ul>
+                  <li style={{color: "#000000ff"}}>Requirements: Letter From School</li>
+                  </ul>
+                </div>
+                </div>
                 <a 
                   href="https://ecol.org.ls/services" 
                   className="btn"
@@ -165,17 +180,15 @@ const Services = () => {
                 >
                   Print Results
                 </a>
-                <div className="readmore">
-                  <ul>
-                  <li>Results:within a day</li>
-                  </ul>
-                </div>
+                
               </div>
             </div>
 
             {/* Service Card 3 */}
             <div className="col-md-6 col-lg-4">
-              <div className="box verification-card" data-aos="fade-up" data-aos-delay="200">
+              <div className="box verification-card">
+            <span className="requirements-label req-label-3" tabIndex="0" title="Show requirements">Requirements</span> 
+                <div className="service-icon-container"></div>  
                 <div className="service-icon-container">
                   <div className="service-icon verification-icon">
                     <svg width="24" height="24" viewBox="0 0 24 24" fill="none" xmlns="http://www.w3.org/2000/svg">
@@ -184,6 +197,7 @@ const Services = () => {
                   </div>
                 </div>
                 <h4>Results/Certification Verification</h4>
+                 <div className="features-section" style={{position: "relative"}}>
                 <h5 className="key-features">Key Features</h5>
                 <ul>
                   
@@ -191,17 +205,23 @@ const Services = () => {
                   <li>Foreign Verification: M545.00</li>
                   <li>Education Institutions: M165.00</li>
                     <p></p>
-                     <p> <span className=" mr-3"></span>
+                     
+                    
+
+
+                </ul>
+                <div className="requirements">
+                  <p> <span className=" mr-3"></span>
                       <b>Note:</b>
                     
                     
                       Local Verification(Employers/Companies).
                   
                     </p>
-                    
-
-
-                </ul>
+                  <ul><li style={{color: "#000000ff"}}>Results: available within 5 working days</li>
+                  </ul>
+                </div>
+                </div>
                 <a 
                   href="https://ecol.org.ls/services" 
                   className="btn"
@@ -210,16 +230,14 @@ const Services = () => {
                 >
                   Verify Now
                 </a>
-                <div className="readmore">
-                  <ul><li>Results: available within 5 working days</li>
-                  </ul>
-                </div>
+               
               </div>
             </div>
 
             {/* Service Card 4 */}
             <div className="col-md-6 col-lg-4">
-              <div className="box certificate-card" data-aos="fade-up" data-aos-delay="300">
+              <div className="box certificate-card">
+               <span className="requirements-label req-label-4" tabIndex="0" title="Show requirements">Requirements</span> 
                 <div className="service-icon-container">
                   <div className="service-icon certificate-icon">
                     <svg width="24" height="24" viewBox="0 0 24 24" fill="none" xmlns="http://www.w3.org/2000/svg">
@@ -227,7 +245,9 @@ const Services = () => {
                     </svg>
                   </div>
                 </div>
+                
                 <h4>Certificate Replacement</h4>
+                <div className="features-section" style={{position: "relative"}}>
                 <h5 className="key-features">Key Features</h5>
                 <ul>
                   
@@ -235,6 +255,17 @@ const Services = () => {
                   <li>JC fee:  1365.00</li>
                   <li>LGCSE fee:  1365.00</li>
                 </ul>
+               
+                 <div className="requirements">
+                   <strong>Requirements:</strong>
+                  <ul>
+                    <li style={{color: "black"}}>Letter from school</li>
+                    <li style={{color: "black"}}>Affidavit from police station</li>
+                    <li style={{color: "black"}}>Bank payment receipt</li>
+                    <li style={{color: "black"}}>Passport size photo (coloured)</li>
+                  </ul>
+                </div>
+                </div>
                 <a 
                   href="https://ecol.org.ls/services" 
                   className="btn"
@@ -243,21 +274,14 @@ const Services = () => {
                 >
                   Apply Now
                 </a>
-                <div className="readmore">
-                  <h6>Requirements:</h6>
-                  <ul>
-                    <li>Letter from school</li>
-                    <li>Affidavit from police station</li>
-                    <li>Bank payment receipt</li>
-                    <li>Passport size photo (coloured)</li>
-                  </ul>
-                </div>
+               
               </div>
             </div>
 
             {/* Service Card 5 */}
             <div className="col-md-6 col-lg-4">
               <div className="box migration-card" data-aos="fade-up">
+              <span className="requirements-label req-label-5" tabIndex="0" title="Show requirements">Requirements</span>               
                 <div className="service-icon-container">
                   <div className="service-icon migration-icon">
                     <svg width="24" height="24" viewBox="0 0 24 24" fill="none" xmlns="http://www.w3.org/2000/svg">
@@ -266,29 +290,36 @@ const Services = () => {
                   </div>
                 </div>
                 <h4>Migration Certificate</h4>
-                <h5 className="key-features">Key Features</h5>
-                <ul>
-                  
-                  <li>Migration certificate: M1365.00</li>
-                  <li>Requirements: Original LGSCE/COSC Certificate</li>
-                </ul>
-                <a 
-                href="https://ecol.org.ls/services" className="btn"
-                  target="_blank" 
-                  rel="noopener noreferrer"
-                >
-                  Apply Now
-                </a>
-                <div className="readmore">
-                  <ul>
-                    <li>Migration certificate: Within a day</li>
-                  </ul>
+                <div className="features-section" style={{position: "relative"}}>
+                    <h5 className="key-features">Key Features</h5>
+                      <ul>
+                        
+                        <li>Migration certificate: M1365.00</li>
+                        <li>Migration certificate: Within a day</li>
+                      </ul>
+                    <div className="requirements">
+                      <ul>
+                        <li style={{color: "#000000ff"}}>Requirements: Original LGSCE/COSC Certificate</li>
+                      </ul>
+                    </div>
                 </div>
+                 
+                    <a 
+                    href="https://ecol.org.ls/services" className="btn"
+                      target="_blank" 
+                      rel="noopener noreferrer"
+                    >
+                      Apply Now
+                    </a>
+                
               </div>
+            
             </div>
 			{/*Service Card 6 - Online Registration*/}
             <div className="col-md-6 col-lg-4">
-              <div className="box proficiency-card" data-aos="fade-up">
+              <div className="box proficiency-card">
+                <span className="requirements-label req-label-6" tabIndex="0" title="Show requirements">Requirements</span>
+               
                 <div className="service-icon-container mb-4">
                   <div className="service-icon proficiency-icon">
                     <svg width="24" height="24" viewBox="0 0 24 24" fill="none" xmlns="http://www.w3.org/2000/svg">
@@ -296,13 +327,21 @@ const Services = () => {
                    </svg>
                   </div>
                 </div>
-                <h4>ENGLISH PROFICIENCY</h4>
-                <h5 className="key-features">Key Features</h5>
-                    <ul>
-                  <li>English Proficiency Fee:M400.00</li>
-                  
-                  <li>requirements: Original LGSCE/COSC Certificate</li>
-                </ul>
+                <h4>English Proficiency</h4>
+                 <div className="features-section" style={{position: "relative"}}>
+                      <h5 className="key-features">Key Features</h5>
+                          <ul>
+                        <li>English Proficiency Fee:M400.00</li>
+                        
+                        <li>Results: available within 2 working days</li>
+                      </ul>
+                        <div className="requirements">
+                          <ul>
+                            <li style={{color: "#000000ff"}}>requirements: Original LGSCE/COSC Certificate</li>
+                          </ul>
+                        </div>
+                </div>
+            
                  <a 
                 href="https://ecol.org.ls/services" className="btn"
                   target="_blank" 
@@ -310,11 +349,7 @@ const Services = () => {
                 >
                   Apply Now
                 </a>
-                <div className="readmore">
-                <ul>
-                  <li>Results: within 2 working days</li>
-                </ul>
-                </div>
+               
               </div>
             </div>
 			
