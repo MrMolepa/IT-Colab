@@ -1,0 +1,249 @@
+/* Modern Portals Section */
+.modern-portals {
+  position: relative;
+  margin-top: -300px;
+  z-index: 10;
+  padding: 4rem 0;
+}
+
+.portals-grid {
+  display: grid;
+  grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
+  gap: 2rem;
+  margin-top: 3rem;
+}
+
+.portal-card {
+  background: white;
+  border-radius: 16px;
+  padding: 2rem;
+  text-decoration: none;
+  color: inherit;
+  box-shadow: 0 4px 20px rgba(0, 0, 0, 0.1);
+  transition: all 0.3s cubic-bezier(0.4, 0, 0.2, 1);
+  position: relative;
+  overflow: hidden;
+  display: flex;
+  align-items: center;
+  gap: 1.5rem;
+  border: 1px solid rgba(0, 0, 0, 0.05);
+}
+
+.portal-card::before {
+  content: '';
+  position: absolute;
+  top: 0;
+  left: 0;
+  right: 0;
+  height: 4px;
+  background: linear-gradient(135deg, #598abf 0%, #e1b20b 50%, #d2b356 100%);
+  transform: scaleX(0);
+  transition: transform 0.3s ease;
+}
+
+.portal-card:hover::before {
+  transform: scaleX(1);
+}
+
+.portal-card:hover {
+  transform: translateY(-8px);
+  box-shadow: 0 12px 40px rgba(0, 0, 0, 0.15);
+  color: inherit;
+}
+
+.portal-icon {
+  width: 80px;
+  height: 80px;
+  border-radius: 20px;
+  background: linear-gradient(135deg, #598abf 0%, #4a7ba7 100%);
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  flex-shrink: 0;
+  transition: all 0.3s ease;
+  position: relative;
+  overflow: hidden;
+}
+
+.portal-icon::before {
+  content: '';
+  position: absolute;
+  top: 0;
+  left: 0;
+  right: 0;
+  bottom: 0;
+  background: linear-gradient(135deg, rgba(255, 255, 255, 0.2) 0%, transparent 100%);
+  opacity: 0;
+  transition: opacity 0.3s ease;
+}
+
+.portal-card:hover .portal-icon::before {
+  opacity: 1;
+}
+
+.portal-card:nth-child(1) .portal-icon {
+  background: linear-gradient(135deg, #598abf 0%, #4a7ba7 100%);
+}
+
+.portal-card:nth-child(2) .portal-icon {
+  background: linear-gradient(135deg, #e1b20b 0%, #c9a00f 100%);
+}
+
+.portal-card:nth-child(3) .portal-icon {
+  background: linear-gradient(135deg, #d2b356 0%, #b89a3a 100%);
+}
+
+.portal-icon i {
+  font-size: 2rem;
+  color: white;
+  z-index: 1;
+  position: relative;
+}
+
+.portal-content {
+  flex: 1;
+}
+
+.portal-content h3 {
+  font-size: 1.5rem;
+  font-weight: 700;
+  margin-bottom: 0.5rem;
+  color: #2c3e50;
+  transition: color 0.3s ease;
+}
+
+.portal-content p {
+  color: #6c757d;
+  font-size: 1rem;
+  line-height: 1.5;
+  margin: 0;
+  transition: color 0.3s ease;
+}
+
+.portal-arrow {
+  width: 40px;
+  height: 40px;
+  border-radius: 50%;
+  background: rgba(89, 138, 191, 0.1);
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  transition: all 0.3s ease;
+  flex-shrink: 0;
+}
+
+.portal-arrow i {
+  color: #598abf;
+  font-size: 1rem;
+  transition: all 0.3s ease;
+}
+
+.portal-card:hover .portal-arrow {
+  background: #598abf;
+  transform: translateX(5px);
+}
+
+.portal-card:hover .portal-arrow i {
+  color: white;
+}
+
+.portal-card:hover .portal-content h3 {
+  color: #598abf;
+}
+
+.portal-card:hover .portal-content p {
+  color: #495057;
+}
+
+/* Portal Card Specific Colors */
+.portal-card:nth-child(1):hover .portal-arrow {
+  background: #598abf;
+}
+
+.portal-card:nth-child(2):hover .portal-arrow {
+  background: #e1b20b;
+}
+
+.portal-card:nth-child(3):hover .portal-arrow {
+  background: #d2b356;
+}
+
+.portal-card:nth-child(1):hover .portal-content h3 {
+  color: #598abf;
+}
+
+.portal-card:nth-child(2):hover .portal-content h3 {
+  color: #e1b20b;
+}
+
+.portal-card:nth-child(3):hover .portal-content h3 {
+  color: #d2b356;
+}
+
+
+
+/* Responsive Design */
+@media (max-width: 768px) {
+  .modern-portals {
+    margin-top: -100px;
+    padding: 3rem 0;
+  }
+  
+  .portals-grid {
+    grid-template-columns: 1fr;
+    gap: 1.5rem;
+  }
+  
+  .portal-card {
+    padding: 1.5rem;
+    flex-direction: column;
+    text-align: center;
+    gap: 1rem;
+  }
+  
+  .portal-icon {
+    width: 70px;
+    height: 70px;
+  }
+  
+  .portal-icon i {
+    font-size: 1.75rem;
+  }
+  
+  .portal-content h3 {
+    font-size: 1.25rem;
+  }
+  
+  .portal-arrow {
+    width: 35px;
+    height: 35px;
+  }
+}
+
+@media (max-width: 480px) {
+  .modern-portals {
+    margin-top: -80px;
+    padding: 2rem 0;
+  }
+  
+  .portal-card {
+    padding: 1.25rem;
+  }
+  
+  .portal-icon {
+    width: 60px;
+    height: 60px;
+  }
+  
+  .portal-icon i {
+    font-size: 1.5rem;
+  }
+  
+  .portal-content h3 {
+    font-size: 1.1rem;
+  }
+  
+  .portal-content p {
+    font-size: 0.9rem;
+  }
+}

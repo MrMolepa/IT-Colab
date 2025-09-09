@@ -1,0 +1,435 @@
+/* Modern Slider Styles */
+.modern-slider {
+  position: relative;
+  width: 100%;
+  height: 80vh;
+  min-height: 600px;
+  overflow: hidden;
+}
+
+.slider-container {
+  width: 100%;
+  height: 100%;
+}
+
+.modern-carousel {
+  height: 100%;
+}
+
+.modern-carousel .carousel-inner {
+  height: 100%;
+}
+
+.modern-carousel .carousel-item {
+  height: 100%;
+}
+
+.slider-wrapper {
+  position: relative;
+  width: 100%;
+  height: 100%;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+}
+
+.slider-image {
+  position: absolute;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 100%;
+  background-size: cover;
+  background-position: center;
+  background-repeat: no-repeat;
+  transition: none; /* disable image transition */
+}
+
+/* disable zoom-on-hover */
+.slider-wrapper:hover .slider-image { transform: none; }
+
+.slider-overlay {
+  position: absolute;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 100%;
+  background: linear-gradient(
+    135deg,
+    rgba(0, 0, 0, 0.7) 0%,
+    rgba(0, 0, 0, 0.4) 50%,
+    rgba(0, 0, 0, 0.6) 100%
+  );
+  z-index: 2;
+}
+
+.slider-content {
+  position: relative;
+  z-index: 3;
+  width: 100%;
+  height: 100%;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+}
+
+.slider-caption {
+  text-align: center;
+  color: white;
+  max-width: 800px;
+  padding: 0 2rem;
+}
+
+.slider-title {
+  font-size: 2rem;
+  font-weight: 800;
+  line-height: 1.2;
+  margin-bottom: 1.5rem;
+  text-shadow: 2px 2px 4px rgba(0, 0, 0, 0.5);
+  background: linear-gradient(45deg, #ffffff, #f0f0f0);
+  -webkit-background-clip: text;
+  -webkit-text-fill-color: transparent;
+  background-clip: text;
+}
+
+.slider-description {
+  font-size: 1.25rem;
+  line-height: 1.6;
+  margin-bottom: 2.5rem;
+  text-shadow: 1px 1px 2px rgba(0, 0, 0, 0.5);
+  opacity: 0.95;
+}
+
+.slider-buttons {
+  display: flex;
+  gap: 1rem;
+  justify-content: center;
+  flex-wrap: wrap;
+  align-items: center;
+  min-height: 64px; /* stabilize height to prevent layout shifts */
+}
+
+.slider-buttons .btn {
+  padding: 15px 30px;
+  font-size: 1rem;
+  font-weight: 600;
+  border-radius: 50px;
+  text-decoration: none;
+  transition: none; /* disable animations */
+  display: inline-flex;
+  align-items: center;
+  gap: 0.5rem;
+  position: relative;
+  overflow: hidden;
+}
+
+.slider-buttons .btn::before { content: none; }
+
+.slider-buttons .btn:hover::before { content: none; }
+
+.slider-buttons .btn-primary {
+  background: linear-gradient(135deg, #598abf 0%, #4a7ba7 100%);
+  color: white;
+  border: none;
+  box-shadow: 0 4px 15px rgba(89, 138, 191, 0.4);
+}
+
+.slider-buttons .btn-primary:hover {
+  box-shadow: 0 4px 15px rgba(89, 138, 191, 0.4); /* no change on hover */
+  color: white; /* no change on hover */
+}
+
+.slider-buttons .btn-secondary {
+  background: transparent;
+  color: white;
+  border: 2px solid white;
+  backdrop-filter: blur(10px);
+}
+
+.slider-buttons .btn-secondary:hover {
+  background: transparent; /* no change on hover */
+  color: white; /* no change on hover */
+  box-shadow: none; /* remove hover shadow */
+}
+
+/* Modern Carousel Controls */
+.modern-carousel .carousel-control-prev,
+.modern-carousel .carousel-control-next {
+  width: 60px;
+  height: 60px;
+  background: rgba(255, 255, 255, 0.1);
+  border-radius: 50%;
+  backdrop-filter: blur(10px);
+  border: 1px solid rgba(255, 255, 255, 0.2);
+  top: 50%;
+  transform: translateY(-50%);
+  transition: all 0.3s ease;
+}
+
+.modern-carousel .carousel-control-prev {
+  left: 30px;
+}
+
+.modern-carousel .carousel-control-next {
+  right: 30px;
+}
+
+.modern-carousel .carousel-control-prev:hover,
+.modern-carousel .carousel-control-next:hover {
+  background: rgba(255, 255, 255, 0.2);
+  transform: translateY(-50%) scale(1.1);
+}
+
+.modern-carousel .carousel-control-prev-icon,
+.modern-carousel .carousel-control-next-icon {
+  width: 20px;
+  height: 20px;
+}
+
+/* Modern Carousel Indicators */
+.modern-carousel .carousel-indicators {
+  bottom: 30px;
+  margin-bottom: 0;
+}
+
+.modern-carousel .carousel-indicators [data-bs-target] {
+  width: 12px;
+  height: 12px;
+  border-radius: 50%;
+  background: rgba(255, 255, 255, 0.5);
+  border: none;
+  margin: 0 6px;
+  transition: all 0.3s ease;
+}
+
+.modern-carousel .carousel-indicators .active {
+  background: white;
+  transform: scale(1.2);
+}
+
+/* Loading and Error States */
+.slider-loading,
+.slider-error {
+  height: 100vh;
+  min-height: 600px;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  background: linear-gradient(135deg, #598abf 0%, #4a7ba7 100%);
+  color: white;
+  text-align: center;
+}
+
+.slider-error h2 {
+  font-size: 2.5rem;
+  margin-bottom: 1rem;
+}
+
+.slider-error p {
+  font-size: 1.1rem;
+  margin-bottom: 2rem;
+  opacity: 0.9;
+}
+
+
+/* slider animation */
+
+.main-slider .owl-item .slider-caption * {
+  -webkit-animation-duration: 10s;
+  animation-duration: 10s;
+  -webkit-animation-fill-mode: both;
+  animation-fill-mode: both;
+}
+
+.main-slider .owl-item.active .slider-caption h1 {
+  -webkit-animation-delay: .10s;
+  animation-delay: .10s;
+  -webkit-animation-name: fadeInLeft;
+  animation-name: fadeInLeft;
+}
+
+.main-slider .owl-item.active .slider-caption .text {
+  -webkit-animation-delay: .10s;
+  animation-delay: .10s;
+  -webkit-animation-name: fadeInRight;
+  animation-name: fadeInRight;
+}
+
+.main-slider .owl-item.active .slider-caption .link-btn {
+  -webkit-animation-delay: 1s;
+  animation-delay: 1s;
+  -webkit-animation-name: fadeInUp;
+  animation-name: fadeInUp;
+}
+
+.main-slider .owl-item.active .slider-caption .slider-caption-bg {
+  -webkit-animation-delay: 1s;
+  animation-delay: 1s;
+  -webkit-animation-name: fadeInDown;
+  animation-name: fadeInDown;
+}
+
+
+/* Slide Nav */
+
+.slide-nav .owl-nav {
+  padding: 0px;
+  top: 50%;
+  -webkit-transform: translateY(-50%) scale(0.97);
+  -ms-transform: translateY(-50%) scale(0.97);
+  transform: translateY(-50%) scale(0.97);
+  position: absolute;
+  left: 0;
+  right: 0;
+  opacity: 0;
+  -webkit-transition: .5s ease;
+  -o-transition: .5s ease;
+  transition: .5s ease;
+}
+
+
+
+.slide-nav .owl-nav .owl-next,
+.slide-nav .owl-nav .owl-prev {
+  position: relative;
+  width: 50px;
+  height: 50px;
+  line-height: 46px;
+  background: #598abf !important;
+  text-align: center;
+  font-size: 24px;
+  color: #fff !important;
+  transition: all 300ms ease;
+  -webkit-transition: all 300ms ease;
+  -ms-transition: all 300ms ease;
+  -o-transition: all 300ms ease;
+}
+
+.slide-nav .carousel-outer:hover .owl-nav .owl-next,
+.slide-nav .carousel-outer:hover .owl-nav .owl-prev {
+  opacity: 1;
+  visibility: visible;
+}
+
+.slide-nav .owl-nav .owl-prev {
+  left: 20px;
+  float: left;
+}
+
+.slide-nav .owl-nav .owl-next {
+  right: 20px;
+  float: right;
+}
+
+.slide-nav .owl-nav .owl-next:hover,
+.slide-nav .owl-nav .owl-prev:hover {
+  color: #fff;
+  border-color: #598abf;
+}
+
+ul.owl-carousel {
+  padding: 0;
+  list-style: none;
+}
+
+.carousel-control-next,
+.carousel-control-prev {
+
+  border: 0;
+  bottom: 0;
+  color: #fff;
+  display: flex;
+  opacity: .5;
+  top: 30%;
+  margin-right: -5px;
+  /* margin-left: -5px; */
+  bottom: 5px;
+  transition: opacity .15s ease;
+  width: 3rem;
+  height: 3rem;
+  align-items: center;
+  z-index: 20;
+}
+
+
+
+.slide-nav .owl-nav .owl-next,
+.slide-nav .owl-nav .owl-prev {
+  position: relative;
+  width: 50px;
+  height: 20px;
+  line-height: 12px;
+  background: #598abf !important;
+  text-align: center;
+  color: #fff !important;
+  transition: all 300ms ease;
+  -webkit-transition: all 300ms ease;
+  -ms-transition: all 300ms ease;
+  -o-transition: all 300ms ease;
+}
+
+/* Main Slider Area End */
+
+
+/* Responsive Design */
+@media (max-width: 768px) {
+  .modern-slider {
+    height: 70vh;
+    min-height: 500px;
+  }
+  
+  .slider-title {
+    font-size: 2.5rem;
+  }
+  
+  .slider-description {
+    font-size: 1.1rem;
+  }
+  
+  .slider-buttons {
+    flex-direction: column;
+    align-items: center;
+  }
+  
+  .slider-buttons .btn {
+    width: 200px;
+  }
+  
+  .modern-carousel .carousel-control-prev,
+  .modern-carousel .carousel-control-next {
+    width: 50px;
+    height: 50px;
+  }
+  
+  .modern-carousel .carousel-control-prev {
+    left: 15px;
+  }
+  
+  .modern-carousel .carousel-control-next {
+    right: 15px;
+  }
+}
+
+@media (max-width: 480px) {
+  .modern-slider {
+    height: 60vh;
+    min-height: 400px;
+  }
+  
+  .slider-title {
+    font-size: 2rem;
+  }
+  
+  .slider-description {
+    font-size: 1rem;
+  }
+  
+  .slider-caption {
+    padding: 0 1rem;
+  }
+  
+  .slider-buttons .btn {
+    padding: 12px 24px;
+    font-size: 0.9rem;
+  }
+}
