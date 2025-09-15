@@ -1,0 +1,133 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Subjects</title>
+    <meta name="csrf-token" content="{{ csrf_token() }}">
+    <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.2/dist/css/bootstrap.min.css">
+    <script src="https://code.jquery.com/jquery-3.6.0.min.js"></script>
+</head>
+<body class="container py-4">
+
+    <h1 class="mb-4">Subjects</h1>
+
+    <!-- Add Subject Form -->
+    <form id="subjectForm" class="mb-4">
+        <div class="row g-2">
+            <div class="col">
+                <input type="text" name="subject_number" class="form-control" placeholder="Subject Number" required>
+            </div>
+            <div class="col">
+                <input type="text" name="component_number" class="form-control" placeholder="Component Number" required>
+            </div>
+            <div class="col">
+                <input type="text" name="name" class="form-control" placeholder="Subject Name" required>
+            </div>
+            <div class="col-auto">
+                <button type="submit" class="btn btn-success">Add</button>
+            </div>
+        </div>
+    </form>
+
+    <!-- Subjects Table -->
+    <table class="table table-bordered" id="subjectsTable">
+        <thead>
+            <tr>
+                <th>ID</th>
+                <th>Subject #</th>
+                <th>Component #</th>
+                <th>Name</th>
+                <th>Actions</th>
+            </tr>
+        </thead>
+        <tbody></tbody>
+    </table>
+
+<script>
+$(document).ready(function() {
+    const token = $('meta[name="csrf-token"]').attr('content');
+
+    // Load subjects
+    function loadSubjects() {
+        $.getJSON('/subjects/list', function(response) {
+            const tbody = $('#subjectsTable tbody');
+            tbody.empty();
+            response.data.forEach(subject => {
+                tbody.append(`
+                    <tr data-id="${subject.id}">
+                        <td>${subject.id}</td>
+                        <td>${subject.subject_number}</td>
+                        <td>${subject.component_number}</td>
+                        <td>${subject.name}</td>
+                        <td>
+                            <button class="btn btn-sm btn-primary editBtn">Edit</button>
+                            <button class="btn btn-sm btn-danger deleteBtn">Delete</button>
+                        </td>
+                    </tr>
+                `);
+            });
+        });
+    }
+    loadSubjects();
+
+    // Add subject
+    $('#subjectForm').submit(function(e) {
+        e.preventDefault();
+        $.ajax({
+            url: '/subjects',
+            method: 'POST',
+            data: $(this).serialize(),
+            headers: { 'X-CSRF-TOKEN': token },
+            success: function() {
+                $('#subjectForm')[0].reset();
+                loadSubjects();
+            },
+            error: function(xhr) {
+                alert('Error: ' + xhr.responseJSON.message);
+            }
+        });
+    });
+
+    // Delete subject
+    $(document).on('click', '.deleteBtn', function() {
+        const id = $(this).closest('tr').data('id');
+        if(confirm('Are you sure?')) {
+            $.ajax({
+                url: '/subjects/' + id,
+                method: 'DELETE',
+                headers: { 'X-CSRF-TOKEN': token },
+                success: function() {
+                    loadSubjects();
+                },
+                error: function(xhr) {
+                    alert('Error: ' + xhr.responseJSON.message);
+                }
+            });
+        }
+    });
+
+    // Edit subject (inline)
+    $(document).on('click', '.editBtn', function() {
+        const row = $(this).closest('tr');
+        const id = row.data('id');
+        const name = prompt("Enter new subject name:", row.find('td:eq(3)').text());
+        if(name) {
+            $.ajax({
+                url: '/subjects/' + id,
+                method: 'PUT',
+                headers: { 'X-CSRF-TOKEN': token },
+                data: { name: name },
+                success: function() {
+                    loadSubjects();
+                },
+                error: function(xhr) {
+                    alert('Error: ' + xhr.responseJSON.message);
+                }
+            });
+        }
+    });
+});
+</script>
+
+</body>
+</html>
