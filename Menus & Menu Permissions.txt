@@ -1,0 +1,24 @@
+/ ************Menus & Menu Permissions**********************
+Route::prefix('menus')->name('menus.')->group(function () {
+    // Main Menu Routes
+    Route::get('/', [MenuController::class, 'index'])->name('index');
+    Route::get('/options', [MenuController::class, 'getMenuOptions'])->name('options');
+    Route::get('/tree', [MenuController::class, 'getMenuTree'])->name('tree');
+    Route::post('/reorder', [MenuController::class, 'reorder'])->name('reorder');
+    Route::post('/', [MenuController::class, 'store'])->name('store');
+    Route::get('/{menu}', [MenuController::class, 'edit'])->name('edit');
+    Route::put('/{menu}', [MenuController::class, 'update'])->name('update');
+    Route::delete('/{menu}', [MenuController::class, 'destroy'])->name('destroy');
+   // Route::get('/guards', [MenuController::class, 'getGuards'])->name('guards');
+
+});
+
+// Menu Permission Routes
+    Route::prefix('menu-permissions')->name('menu-permissions.')->group(function () {
+    Route::get('/guards', [MenuPermissionController::class, 'getGuards'])->name('guards');    
+    Route::get('/', [MenuPermissionController::class, 'index'])->name('index');
+    Route::post('/', [MenuPermissionController::class, 'store'])->name('store');
+    Route::delete('/{menuPermission}', [MenuPermissionController::class, 'destroy'])->name('destroy');
+    Route::get('/menu/{menu}', [MenuPermissionController::class, 'getByMenu'])->name('menu');
+
+});
