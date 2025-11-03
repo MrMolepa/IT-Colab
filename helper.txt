@@ -1,0 +1,58 @@
+
+/**
+ * Check if current route matches menu route
+ */
+if (!function_exists('isActiveRoute')) {
+    function isActiveRoute($route)
+    {
+        if (!$route) {
+            return false;
+        }
+        
+        try {
+            // Check if current route name matches
+            if (Route::currentRouteName() == $route) {
+                return true;
+            }
+            
+            // Check if current URL contains the route
+            return request()->is($route . '*');
+        } catch (\Exception $e) {
+            return false;
+        }
+    }
+}
+
+/**
+ * Check if menu or its children are active
+ */
+if (!function_exists('isMenuActive')) {
+    function isMenuActive($menu)
+    {
+        // Check if current menu is active
+        if (isActiveRoute($menu->route)) {
+            return true;
+        }
+        
+        // Check if any children are active
+        if ($menu->children && $menu->children->isNotEmpty()) {
+            foreach ($menu->children as $child) {
+                if (isActiveRoute($child->route)) {
+                    return true;
+                }
+            }
+        }
+        
+        return false;
+    }
+}
+
+/**
+ * Generate unique collapse ID for menu
+ */
+if (!function_exists('getMenuCollapseId')) {
+    function getMenuCollapseId($menu)
+    {
+        return 'menu-' . $menu->id . '-collapse';
+    }
+}
