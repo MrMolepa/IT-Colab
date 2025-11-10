@@ -1,11 +1,13 @@
 @extends('layouts.admin')
 
+@section('title', 'Phone Call Logs')
+
 @section('content')
 <div class="main">
     <!-- MAIN CONTENT -->
     <div class="main-content">
         <div class="container-fluid">
-            <h3 class="page-title">Menu Management</h3>
+            <h3 class="page-title">Phone Call Logs</h3>
             <div class="row">
                 <div class="col-md-12">
                     <!-- PANEL NO CONTROLS -->
@@ -13,55 +15,26 @@
                         <div class="panel-body">
                             <div class="row">
                                 <div class="col-md-12">
-                                    <!-- View Toggle Buttons -->
-                                    <div class="btn-group mb-3" role="group">
-                                        <button type="button" class="btn btn-default active" id="table-view-btn">
-                                            <i class="fa fa-list"></i> Table View
-                                        </button>
-                                        <button type="button" class="btn btn-default" id="tree-view-btn">
-                                            <i class="fa fa-sitemap"></i> Tree View (Drag & Drop)
-                                        </button>
-                                    </div>
-                                        <button type="button" class="btn btn-primary" id="addMenuBtn">
-                                                <i class="fa fa-plus"></i> Add Menu
-                                        </button>
-                                    <div class="tab-content">
-                                        <!-- TABLE VIEW -->
-                                        <div id="table-view">
-                                            <table class="table table-striped" id="menusTable">
-                                                <thead>
-                                                    <tr>
-                                                        <th>ID</th>
-                                                        <th>Name</th>
-                                                        <th>Route</th>
-                                                        <th>Icon</th>
-                                                        <th>Order</th>
-                                                        <th>Parent</th>
-                                                        <th>Guard</th>
-                                                        <th>Status</th>
-                                                        <th>Actions</th>
-                                                    </tr>
-                                                </thead>
-                                                <tbody>
-                                                </tbody>
-                                            </table>
-                                        </div>
-
-                                        <!-- TREE VIEW (Drag & Drop) -->
-                                        <div id="tree-view" style="display: none;">
-                                            <div class="alert alert-info">
-                                                <i class="fa fa-hand-rock-o"></i> <strong>Drag and drop</strong> menus to reorder them. Changes are saved automatically. You can also drag child menus between parents.
-                                            </div>
-                                            <div id="menu-tree" class="menu-tree">
-                                                <div class="d-flex align-items-center justify-content-between">
-                                                     <span class="handle" style="cursor: grab;">☰</span>
-                                                </div>
-                                                <div class="text-center" style="padding: 100px;">
-                                                    <i class="fa fa-spinner fa-spin fa-3x"></i>
-                                                    <p>Loading menus...</p>
-                                                </div>
-                                            </div>
-                                        </div>
+                                    <button type="button" class="btn btn-primary" id="addPhoneCallLogBtn">
+                                        <i class="fa fa-plus"></i> Add Phone Call Log
+                                    </button>
+                                    
+                                    <div class="mt-3">
+                                        <table class="table table-striped" id="phoneCallLogTable">
+                                            <thead>
+                                                <tr>
+                                                    <th>ID</th>
+                                                    <th>Name</th>
+                                                    <th>Phone</th>
+                                                    <th>Date</th>
+                                                    <th>Call Type</th>
+                                                    <th>Next Follow Up</th>
+                                                    <th>Actions</th>
+                                                </tr>
+                                            </thead>
+                                            <tbody>
+                                            </tbody>
+                                        </table>
                                     </div>
                                 </div>
                             </div>
@@ -75,35 +48,17 @@
 </div>
 <!-- END MAIN CONTENT -->
 
-@include('admin.menus._form')
-@include('admin.menus._permissions')
+@include('admin.front-desk.phone-call-log._form')
 
 @endsection
 
 @push('styles')
-<link rel="stylesheet" href="https://code.jquery.com/ui/1.12.1/themes/base/jquery-ui.css">
+<link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/bootstrap-datepicker/1.9.0/css/bootstrap-datepicker.min.css">
 @endpush
 
 @push('scripts')
-<script src="https://code.jquery.com/ui/1.12.1/jquery-ui.min.js"></script>
+<script src="https://cdnjs.cloudflare.com/ajax/libs/bootstrap-datepicker/1.9.0/js/bootstrap-datepicker.min.js"></script>
 <script>
-    // TOASTER AND NOTIFICATION SETUP
-    toastr.options = {
-        closeButton: true,
-        newestOnTop: false,
-        progressBar: true,
-        positionClass: "toast-top-center",
-        preventDuplicates: false,
-        onclick: null,
-        showDuration: "3000",
-        hideDuration: "8000",
-        timeOut: "10000",
-        extendedTimeOut: "8000",
-        showEasing: "swing",
-        hideEasing: "linear",
-        showMethod: "fadeIn",
-        hideMethod: "fadeOut",
-    };
 
     $(document).ready(function() {
         $.ajaxSetup({
@@ -112,19 +67,23 @@
             }
         });
 
-        let table = $('#menusTable').DataTable({
+        // Initialize datepicker
+        $('.datepicker').datepicker({
+            format: 'yyyy-mm-dd',
+            autoclose: true
+        });
+
+        let table = $('#phoneCallLogTable').DataTable({
             processing: true,
             serverSide: true,
-            ajax: "{{ route('admin.menus.index') }}",
+            ajax: "{{ route('admin.front-desk.phone-call-log.index') }}",
             columns: [
                 {data: 'id', name: 'id'},
                 {data: 'name', name: 'name'},
-                {data: 'route', name: 'route'},
-                {data: 'icon', name: 'icon'},
-                {data: 'order', name: 'order'},
-                {data: 'parent_name', name: 'parent.name'},
-                {data: 'guard_name', name: 'guard_name'},
-                {data: 'status', name: 'status'},
+                {data: 'phone', name: 'phone'},
+                {data: 'date', name: 'date'},
+                {data: 'call_type_badge', name: 'call_type'},
+                {data: 'next_follow_up_date', name: 'next_follow_up_date'},
                 {
                     data: 'actions',
                     name: 'actions',
@@ -133,158 +92,6 @@
                 }
             ]
         });
-
-        // View toggle functionality
-        $('#table-view-btn').click(function() {
-            $('#table-view').show();
-            $('#tree-view').hide();
-            $(this).addClass('active');
-            $('#tree-view-btn').removeClass('active');
-        });
-
-        $('#tree-view-btn').click(function() {
-            $('#table-view').hide();
-            $('#tree-view').show();
-            $(this).addClass('active');
-            $('#table-view-btn').removeClass('active');
-            loadMenuTree();
-        });
-
-        // Load menu tree for drag and drop
-        function loadMenuTree() {
-            $.get('{{ route("admin.menus.tree") }}', function(response) {
-                if (response.success) {
-                    renderMenuTree(response.menus);
-                    initSortable();
-                } else {
-                    $('#menu-tree').html('<div class="alert alert-warning">No menus found</div>');
-                }
-            }).fail(function() {
-                $('#menu-tree').html('<div class="alert alert-danger">Error loading menus</div>');
-            });
-        }
-
-        // Render menu tree
-        function renderMenuTree(menus) {
-            let html = '<ul class="menu-tree">';
-            
-            menus.forEach(function(menu) {
-                html += renderMenuItem(menu);
-            });
-            
-            html += '</ul>';
-            $('#menu-tree').html(html);
-        }
-
-        // Render single menu item
-        function renderMenuItem(menu) {
-            let html = `
-                <li class="menu-item" data-id="${menu.id}" data-parent="${menu.parent_id || ''}">
-                    <div class="menu-item-header">
-                        <div class="menu-item-info">
-                            <span class="drag-handle">
-                                <i class="fa fa-bars"></i>
-                            </span>
-                            <i class="${menu.icon || 'fa fa-circle-o'} menu-item-icon"></i>
-                            <div class="menu-item-details">
-                                <div class="menu-item-name">${menu.name}</div>
-                                ${menu.route ? `<div class="menu-item-route">${menu.route}</div>` : ''}
-                            </div>
-                            <div class="menu-item-badges">
-                                <span class="menu-item-badge badge-order">#${menu.order}</span>
-                                <span class="menu-item-badge badge-guard">${menu.guard_name}</span>
-                                <span class="menu-item-badge ${menu.is_active ? 'badge-active' : 'badge-inactive'}">
-                                    ${menu.is_active ? 'Active' : 'Inactive'}
-                                </span>
-                            </div>
-                        </div>
-                        <div class="menu-item-actions">
-                            <button class="btn btn-primary btn-xs edit-btn" data-url="${menu.edit_url}" title="Edit">
-                                <i class="fa fa-pencil"></i>
-                            </button>
-                            <button class="btn btn-warning btn-xs permissions-btn" 
-                                    data-url="${menu.permissions_url}" 
-                                    data-name="${menu.name}"
-                                    title="Permissions">
-                                <i class="fa fa-lock"></i>
-                            </button>
-                            <button class="btn btn-danger btn-xs delete-btn" data-url="${menu.delete_url}" title="Delete">
-                                <i class="fa fa-trash"></i>
-                            </button>
-                        </div>
-                    </div>
-                    ${menu.children && menu.children.length > 0 ? renderChildren(menu.children) : ''}
-                </li>
-            `;
-            return html;
-        }
-
-        // Render children
-        function renderChildren(children) {
-            let html = '<ul class="menu-children">';
-            children.forEach(function(child) {
-                html += renderMenuItem(child);
-            });
-            html += '</ul>';
-            return html;
-        }
-
-        // Initialize sortable
-        function initSortable() {
-            $('.menu-tree, .menu-children').sortable({
-                handle: '.drag-handle',
-                placeholder: 'ui-sortable-placeholder',
-                connectWith: '.menu-tree, .menu-children',
-                tolerance: 'pointer',
-                cursor: 'move',
-                update: function(event, ui) {
-                    saveOrder();
-                }
-            });
-        }
-
-        // Save menu order
-        function saveOrder() {
-            let order = [];
-            
-            // Get parent menus
-            $('.menu-tree > .menu-item').each(function(index) {
-                let menuId = $(this).data('id');
-                order.push({
-                    id: menuId,
-                    parent_id: null,
-                    order: index + 1
-                });
-                
-                // Get children
-                $(this).find('.menu-children > .menu-item').each(function(childIndex) {
-                    order.push({
-                        id: $(this).data('id'),
-                        parent_id: menuId,
-                        order: childIndex + 1
-                    });
-                });
-            });
-
-            $.ajax({
-                url: '{{ route("admin.menus.reorder") }}',
-                method: 'POST',
-                data: {
-                    _token: '{{ csrf_token() }}',
-                    order: order
-                },
-                success: function(response) {
-                    if (response.success) {
-                        toastr.success('Menu order updated successfully');
-                        table.ajax.reload(null, false); // Reload table without resetting pagination
-                    }
-                },
-                error: function() {
-                    toastr.error('Failed to update menu order');
-                    loadMenuTree(); // Reload tree on error
-                }
-            });
-        }
 
         // Helper function to fill form fields
         function fillForm(data, formId) {
@@ -303,17 +110,24 @@
         }
 
         // Open modal for Add
-        $('#addMenuBtn').click(function() {
-            $('#menuForm')[0].reset();
-            $('#menu_id').val('');
-            $('#menuModalTitle').text('Add Menu');
+        $('#addPhoneCallLogBtn').click(function() {
+            $('#phoneCallLogForm')[0].reset();
+            $('#phoneCallLog_id').val('');
+            $('#phoneCallLogModalTitle').text('Add Phone Call Log');
             $('.form-control').removeClass('is-invalid');
             $('.invalid-feedback').text('');
-            $('#menuForm').attr('action','{{ route("admin.menus.store") }}');
-            $('#menuModal').modal('show');
+            $('#phoneCallLogForm').attr('action', '{{ route("admin.front-desk.phone-call-log.store") }}');
+            
+            // Re-initialize datepickers after form reset
+            $('.datepicker').datepicker({
+                format: 'yyyy-mm-dd',
+                autoclose: true
+            });
+            
+            $('#phoneCallLogModal').modal('show');
         });
 
-        // Open modal for Edit (delegated for tree view)
+        // Open modal for Edit
         $(document).on('click', '.edit-btn', function(e) {
             e.preventDefault();
             let url = $(this).data('url');
@@ -322,32 +136,32 @@
                 url: url,
                 type: 'GET',
                 success: function(response) {
-                    if (response.menu) {
-                        const menu = response.menu;
-                        fillForm(menu, '#menuForm');
-                        $('#menu_id').val(menu.id); 
-                        $('#menuModalTitle').text('Edit Menu');
+                    if (response.data) {
+                        const log = response.data;
+                        fillForm(log, '#phoneCallLogForm');
+                        $('#phoneCallLog_id').val(log.id);
+                        $('#phoneCallLogModalTitle').text('Edit Phone Call Log');
                         $('.form-control').removeClass('is-invalid is-valid');
                         $('.invalid-feedback').text('');
-                        $('#menuForm').attr('action', response.url);
+                        $('#phoneCallLogForm').attr('action', response.url);
                         
-                        $('#menuModal').modal('show');
+                        $('#phoneCallLogModal').modal('show');
                     } else {
-                        toastr.error('Menu not found');
+                        toastr.error('Phone call log not found');
                     }
                 },
                 error: function(xhr) {
-                    toastr.error('Error loading menu data');
+                    toastr.error('Error loading phone call log data');
                 }
             });
         });
 
         // Submit Add/Edit
-        $('#menuForm').submit(function(e) {
+        $('#phoneCallLogForm').submit(function(e) {
             e.preventDefault();
-            let id = $('#menu_id').val();
-            let method = id ? 'PUT' : 'POST'; 
-            let url = $('#menuForm').attr('action');
+            let id = $('#phoneCallLog_id').val();
+            let method = id ? 'PUT' : 'POST';
+            let url = $('#phoneCallLogForm').attr('action');
             
             $('.form-control').removeClass('is-invalid');
             $('.invalid-feedback').text('');
@@ -357,11 +171,8 @@
                 type: method,
                 data: $(this).serialize(),
                 success: function(response) {
-                    $('#menuModal').modal('hide');
+                    $('#phoneCallLogModal').modal('hide');
                     table.ajax.reload();
-                    if ($('#tree-view').is(':visible')) {
-                        loadMenuTree();
-                    }
                     toastr.success(response.message);
                 },
                 error: function(xhr) {
@@ -372,17 +183,17 @@
                             $('#' + key).siblings('.invalid-feedback').text(value[0]);
                         });
                     } else {
-                        toastr.error(xhr.responseJSON?.message || 'Error saving menu');
+                        toastr.error(xhr.responseJSON?.message || 'Error saving phone call log');
                     }
-                }
+                }        
             });
         });
 
-        // Delete Menu (delegated for tree view)
+        // Delete Phone Call Log
         $(document).on('click', '.delete-btn', function(e) {
             e.preventDefault();
             
-            if (!confirm('Are you sure you want to delete this menu?')) {
+            if (!confirm('Are you sure you want to delete this phone call log?')) {
                 return;
             }
             
@@ -395,13 +206,10 @@
                 },
                 success: function(response) {
                     table.ajax.reload();
-                    if ($('#tree-view').is(':visible')) {
-                        loadMenuTree();
-                    }
                     toastr.success(response.message);
                 },
                 error: function(xhr) {
-                    toastr.error(xhr.responseJSON?.message || 'Error deleting menu');
+                    toastr.error(xhr.responseJSON?.message || 'Error deleting phone call log');
                 }
             });
         });
