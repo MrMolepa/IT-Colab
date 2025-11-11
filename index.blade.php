@@ -1,13 +1,13 @@
 @extends('layouts.admin')
 
-@section('title', 'Phone Call Logs')
+@section('title', 'Visitors Book')
 
 @section('content')
 <div class="main">
     <!-- MAIN CONTENT -->
     <div class="main-content">
         <div class="container-fluid">
-            <h3 class="page-title">Phone Call Logs</h3>
+            <h3 class="page-title">Visitors Book</h3>
             <div class="row">
                 <div class="col-md-12">
                     <!-- PANEL NO CONTROLS -->
@@ -15,21 +15,26 @@
                         <div class="panel-body">
                             <div class="row">
                                 <div class="col-md-12">
-                                    <button type="button" class="btn btn-primary" id="addPhoneCallLogBtn">
-                                        <i class="fa fa-plus"></i> Add Phone Call Log
+                                    <button type="button" class="btn btn-primary" id="addVisitorsBtn">
+                                        <i class="fa fa-plus"></i> Add Visitor
                                     </button>
                                     
                                     <div class="mt-3">
-                                        <table class="table table-striped" id="phoneCallLogTable">
+                                        <table class="table table-striped" id="visitorsBookTable">
                                             <thead>
                                                 <tr>
                                                     <th>ID</th>
-                                                    <th>Name</th>
+                                                    <th>Purpose</th>
+                                                    <th>Meeting With</th>
+                                                    <th>Visitor Name</th>
                                                     <th>Phone</th>
+                                                    <th>Number of People</th>
                                                     <th>Date</th>
-                                                    <th>Call Type</th>
-                                                    <th>Next Follow Up</th>
+                                                    <th>In Time</th>
+                                                    <th>Out Time</th>
                                                     <th>Actions</th>
+
+                                                    
                                                 </tr>
                                             </thead>
                                             <tbody>
@@ -48,16 +53,34 @@
 </div>
 <!-- END MAIN CONTENT -->
 
-@include('admin.front-desk.phone-call-log._form')
+@include('admin.front-desk.visitors-book._form')
 
 @endsection
 
 @push('styles')
 <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/bootstrap-datepicker/1.9.0/css/bootstrap-datepicker.min.css">
+<link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/@eonasdan/tempus-dominus@6.9.7/dist/css/tempus-dominus.min.css"/>
+
 @endpush
 
 @push('scripts')
 <script src="https://cdnjs.cloudflare.com/ajax/libs/bootstrap-datepicker/1.9.0/js/bootstrap-datepicker.min.js"></script>
+<script src="https://cdn.jsdelivr.net/npm/@eonasdan/tempus-dominus@6.9.7/dist/js/tempus-dominus.min.js"></script>
+<script>
+document.addEventListener('DOMContentLoaded', function () {
+    new tempusDominus.TempusDominus(document.getElementById('in_time'), {
+        display: {
+            components: {
+                calendar: false,  // disable calendar
+                hours: true,
+                minutes: true,
+                seconds: false
+            }
+        }
+    });
+});
+</script>
+
 <script>
 
     $(document).ready(function() {
@@ -73,17 +96,20 @@
             autoclose: true
         });
 
-        let table = $('#phoneCallLogTable').DataTable({
+        let table = $('#visitorsBookTable').DataTable({
             processing: true,
             serverSide: true,
-            ajax: "{{ route('admin.front-desk.phone-call-log.index') }}",
+            ajax: "{{ route('admin.front-desk.visitors-book.index') }}",
             columns: [
-                {data: 'id', name: 'id'},
-                {data: 'name', name: 'name'},
-                {data: 'phone', name: 'phone'},
-                {data: 'date', name: 'date'},
-                {data: 'call_type_badge', name: 'call_type'},
-                {data: 'next_follow_up_date', name: 'next_follow_up_date'},
+                { data: 'id', name: 'id' },
+                { data: 'purpose', name: 'purpose' },
+                { data: 'meeting_with', name: 'meeting_with' },
+                { data: 'visitor_name', name: 'visitor_name' },
+                { data: 'phone', name: 'phone' },
+                { data: 'number_of_person', name: 'number_of_people' },
+                { data: 'date', name: 'date' },
+                { data: 'in_time', name: 'in_time' },
+                { data: 'out_time', name: 'out_time' },
                 {
                     data: 'actions',
                     name: 'actions',
@@ -110,13 +136,13 @@
         }
 
         // Open modal for Add
-        $('#addPhoneCallLogBtn').click(function() {
-            $('#phoneCallLogForm')[0].reset();
-            $('#phoneCallLog_id').val('');
-            $('#phoneCallLogModalTitle').text('Add Phone Call Log');
+        $('#addVisitorsBtn').click(function() {
+            $('#visitorsBookForm')[0].reset();
+            $('#visitorsBook_id').val('');
+            $('#visitorsBookModalTitle').text('Add Visitor');
             $('.form-control').removeClass('is-invalid');
             $('.invalid-feedback').text('');
-            $('#phoneCallLogForm').attr('action', '{{ route("admin.front-desk.phone-call-log.store") }}');
+            $('#visitorsBookForm').attr('action', '{{ route("admin.front-desk.visitors-book.store") }}');
             
             // Re-initialize datepickers after form reset
             $('.datepicker').datepicker({
@@ -124,7 +150,7 @@
                 autoclose: true
             });
             
-            $('#phoneCallLogModal').modal('show');
+            $('#visitorsBookModal').modal('show');
         });
 
         // Open modal for Edit
@@ -138,30 +164,30 @@
                 success: function(response) {
                     if (response.data) {
                         const log = response.data;
-                        fillForm(log, '#phoneCallLogForm');
-                        $('#phoneCallLog_id').val(log.id);
-                        $('#phoneCallLogModalTitle').text('Edit Phone Call Log');
+                        fillForm(log, '#visitorsBookForm');
+                        $('#visitorsBook_id').val(log.id);
+                        $('#visitorsBookModalTitle').text('Edit Visitor');
                         $('.form-control').removeClass('is-invalid is-valid');
                         $('.invalid-feedback').text('');
-                        $('#phoneCallLogForm').attr('action', response.url);
+                        $('#visitorsBookForm').attr('action', response.url);
                         
-                        $('#phoneCallLogModal').modal('show');
+                        $('#visitorsBookModal').modal('show');
                     } else {
-                        toastr.error('Phone call log not found');
+                        toastr.error('Sorry. Visitor not found.');
                     }
                 },
                 error: function(xhr) {
-                    toastr.error('Error loading phone call log data');
+                    toastr.error('Error fetching visitor data. Please try again.');
                 }
             });
         });
 
         // Submit Add/Edit
-        $('#phoneCallLogForm').submit(function(e) {
+        $('#visitorsBookForm').submit(function(e) {
             e.preventDefault();
-            let id = $('#phoneCallLog_id').val();
+            let id = $('#visitorsBook_id').val();
             let method = id ? 'PUT' : 'POST';
-            let url = $('#phoneCallLogForm').attr('action');
+            let url = $('#visitorsBookForm').attr('action');
             
             $('.form-control').removeClass('is-invalid');
             $('.invalid-feedback').text('');
@@ -171,7 +197,7 @@
                 type: method,
                 data: $(this).serialize(),
                 success: function(response) {
-                    $('#phoneCallLogModal').modal('hide');
+                    $('#visitorsBookModal').modal('hide');
                     table.ajax.reload();
                     toastr.success(response.message);
                 },
@@ -183,7 +209,7 @@
                             $('#' + key).siblings('.invalid-feedback').text(value[0]);
                         });
                     } else {
-                        toastr.error(xhr.responseJSON?.message || 'Error saving phone call log');
+                        toastr.error(xhr.responseJSON?.message || 'Sorry. An error occurred while saving the visitor.');
                     }
                 }        
             });
@@ -193,7 +219,7 @@
         $(document).on('click', '.delete-btn', function(e) {
             e.preventDefault();
             
-            if (!confirm('Are you sure you want to delete this phone call log?')) {
+            if (!confirm('You are about to delete a visitor record. This action cannot be undone. Are you sure you want to proceed?')) {
                 return;
             }
             
@@ -209,7 +235,7 @@
                     toastr.success(response.message);
                 },
                 error: function(xhr) {
-                    toastr.error(xhr.responseJSON?.message || 'Error deleting phone call log');
+                    toastr.error(xhr.responseJSON?.message || 'Error deleting visitor record');
                 }
             });
         });
